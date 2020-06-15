@@ -17,6 +17,14 @@ namespace TMSAPI
             //đăng ký BL
             container.RegisterType<IBaseBL, BaseBL>();
             container.RegisterType<ITestBL, TestBL>();
+            container.RegisterType<IUserBL, UserBL>();
+            container.RegisterType<IProgramBL, ProgramBL>();
+            container.RegisterType<IClassBL, ClassBL>();
+            container.RegisterType<ISubjectBL, SubjectBL>();
+            container.RegisterType<ITopicBL, TopicBL>();
+            container.RegisterType<ILessonBL, LessonBL>();
+            container.RegisterType<IUserRoleBL, UserRoleBL>();
+
 
             config.DependencyResolver = new UnityResolver(container);
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
