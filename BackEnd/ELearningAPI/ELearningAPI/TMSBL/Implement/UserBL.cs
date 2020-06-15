@@ -8,5 +8,6 @@ namespace TMSBL
 {
     public class UserBL : BaseBL, IUserBL
     {
+
     }
 }

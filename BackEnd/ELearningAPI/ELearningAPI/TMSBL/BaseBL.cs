@@ -13,7 +13,7 @@ using TMSDL;
 
 namespace TMSBL
 {
-    public class BaseBL: IBaseBL
+    public class BaseBL : IBaseBL
     {
         private readonly string _userName = "admin";
         public string Proc_Insert = "Proc_{0}_Insert";
@@ -21,6 +21,7 @@ namespace TMSBL
         public string Proc_Delete = "Proc_{0}_Delete";
         protected string ApplicationCode;
         protected string _modelNamespace;
+        public int _tenantID = 1;
         protected DatabaseService DL;
         protected string AppCode = "E_Learning";
         public BaseBL()
@@ -46,6 +47,7 @@ namespace TMSBL
                 oEntity.CreatedDate = DateTime.Now;
                 oEntity.CreatedBy = _userName;
             }
+            oEntity.TenantID = _tenantID;
             oEntity.ModifiedBy = _userName;
             oEntity.ModifiedDate = DateTime.Now;
         }
@@ -211,7 +213,6 @@ namespace TMSBL
         public virtual void AfterCommit(BaseModel baseModel, ServiceResult serviceResponse)
         {
             //TODO
-            serviceResponse.Data = this.GetByID(baseModel.GetType().Name, baseModel.GetPrimaryKeyValue().ToString());
         }
         /// <summary>
         /// lấy theo ID
@@ -386,12 +387,12 @@ namespace TMSBL
             var validateResults = new List<ValidateResult>();
             return validateResults;
         }
-            /// <summary>
-            /// Xóa dữ liệu 
-            /// </summary>
-            /// <param name="baseModel"></param>
-            /// <returns></returns>
-            public ServiceResult DeleteData(BaseModel baseModel)
+        /// <summary>
+        /// Xóa dữ liệu 
+        /// </summary>
+        /// <param name="baseModel"></param>
+        /// <returns></returns>
+        public ServiceResult DeleteData(BaseModel baseModel)
         {
             ServiceResult serviceResponse = new ServiceResult();
             IDbConnection connection = null;

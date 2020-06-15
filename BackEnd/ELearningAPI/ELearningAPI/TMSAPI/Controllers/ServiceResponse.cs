@@ -27,6 +27,10 @@ namespace TMSAPI.Controllers
         public string SystemMessage { get; set; }
 
         /// <summary>
+        /// Mã lỗi chính
+        /// </summary>
+        public int Code { get; set; } = 1;
+        /// <summary>
         /// Dữ liệu trả về
         /// </summary>
         public object Data { get; set; }
@@ -35,5 +39,25 @@ namespace TMSAPI.Controllers
         /// Giờ hiện tại của server
         /// </summary>
         public DateTime ServerTime { get; set; } = DateTime.Now;
+        public ServiceResponse OnException(Exception ex)
+        {
+            if (ex != null)
+            {
+                this.Success = false;
+                this.Code = 0;
+                this.UserMessage = DEFAULT_ERRORMESSAGE;
+#if true
+                this.SystemMessage = ex.Message; //TODO: qvliem Tam thoi tra ve loi trong giai doan BETA
+                if (ex.InnerException != null)
+                {
+                    this.SystemMessage += Environment.NewLine + ex.InnerException.Message;
+                }
+#else
+                this.SystemMessage = "Exception.";
+#endif
+            }
+
+            return this;
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace TMSDL
     /// </summary>
     public class DatabaseService : IDatabaseService
     {
+        public int _tenantID = 1;
         #region get summary
         /// <summary>
         /// lấy connection
@@ -300,7 +301,7 @@ namespace TMSDL
 
             if (fieldValue != null)
             {
-                commandText = commandText + $" AND `{Utils.SafeSqlLiteralForObjectName(fieldName)}` = @ForeignKeyValue";
+                commandText = commandText + $"TenantID = {_tenantID} AND `{Utils.SafeSqlLiteralForObjectName(fieldName)}` = @ForeignKeyValue";
                 dicParam.Add("@ForeignKeyValue", fieldValue);
             }
             else
