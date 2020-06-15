@@ -142,7 +142,7 @@ body {
   left: 0;
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -262,7 +262,7 @@ body {
   display: block;
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -388,7 +388,7 @@ body {
   margin: 0 auto;
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -591,10 +591,10 @@ body {
 
 .main--content .students-subject__item__stat {
   box-sizing: border-box;
-  padding: 15px 12px 0;
+  padding: 4px 12px 0;
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -637,7 +637,7 @@ body {
   padding: 0 0 0 10px;
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -683,7 +683,7 @@ body {
   padding-left: 15px;
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -911,4 +911,42 @@ body.zu .main--content .games {
   bottom: 0;
   left: 0;
   z-index: 999999999
+}
+
+.font-13{
+  font-size: 13px;
+}
+.font-15{
+  font-size: 15px;
+}.font-17{
+  font-size: 17px;
+}
+.font-20{
+  font-size: 20px;
+}
+.font-24{
+  font-size: 24px;
+}
+.font-28{
+  font-size: 28px;
+}
+.bold{
+  font-weight: 700;
+}
+.medium{
+  font-weight: 500;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.text-blue{
+  color: #2196f3 !important;
+}
+.text-red{
+  color: #e8384f !important;
+}
+.text-white{
+  color: #fff !important;
 }

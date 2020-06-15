@@ -52,12 +52,12 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>250 px</X>
-              <Y>10 px</Y>
+              <X>-130 px</X>
+              <Y>-10 px</Y>
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>195 px</Height>
+              <Height>263 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.class</Path>
@@ -75,12 +75,12 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>220 px</X>
-              <Y>320 px</Y>
+              <X>30 px</X>
+              <Y>280 px</Y>
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>212 px</Height>
+              <Height>233 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.lesson</Path>
@@ -98,12 +98,12 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>500 px</X>
-              <Y>10 px</Y>
+              <X>320 px</X>
+              <Y>230 px</Y>
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>195 px</Height>
+              <Height>229 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.subject</Path>
@@ -121,12 +121,12 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>550 px</X>
-              <Y>320 px</Y>
+              <X>260 px</X>
+              <Y>490 px</Y>
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>178 px</Height>
+              <Height>195 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.topic</Path>
@@ -144,8 +144,8 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>-40 px</X>
-              <Y>30 px</Y>
+              <X>160 px</X>
+              <Y>0 px</Y>
             </Location>
             <Size>
               <Width>202 px</Width>
@@ -161,13 +161,105 @@
               <TriggersCollapsed>True</TriggersCollapsed>
             </Compartments>
           </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>6</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-580 px</X>
+              <Y>140 px</Y>
+            </Location>
+            <Size>
+              <Width>196 px</Width>
+              <Height>365 px</Height>
+            </Size>
+            <DbOid>
+              <Path>platform_elearning.user</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>7</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-300 px</X>
+              <Y>250 px</Y>
+            </Location>
+            <Size>
+              <Width>190 px</Width>
+              <Height>229 px</Height>
+            </Size>
+            <DbOid>
+              <Path>platform_elearning.user_lesson</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>8</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-220 px</X>
+              <Y>510 px</Y>
+            </Location>
+            <Size>
+              <Width>181 px</Width>
+              <Height>212 px</Height>
+            </Size>
+            <DbOid>
+              <Path>platform_elearning.user_topic</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>9</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-380 px</X>
+              <Y>-20 px</Y>
+            </Location>
+            <Size>
+              <Width>177 px</Width>
+              <Height>229 px</Height>
+            </Size>
+            <DbOid>
+              <Path>platform_elearning.user_class</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
-          <Scale>0.9403564</Scale>
+          <Scale>1.03</Scale>
           <Location>
-            <X>-142.924528666117 px</X>
-            <Y>-12.7611215147444 px</Y>
+            <X>-667.961214525627 px</X>
+            <Y>-58.2524308434689 px</Y>
           </Location>
         </ViewPort>
       </Model>

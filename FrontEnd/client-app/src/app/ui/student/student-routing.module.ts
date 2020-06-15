@@ -13,6 +13,18 @@ const routes: Routes = [{
         import("./main/student-main.module").then(
           m => m.StudentMainModule
         )
+    },{
+      path: "mytask",
+      loadChildren: () =>
+        import("./mytask/mytask.module").then(
+          m => m.MytaskModule
+        )
+    },{
+      path: "subject/:subjectID",
+      loadChildren: () =>
+        import("./subject/subject.module").then(
+          m => m.SubjectModule
+        )
     },{ path: "", redirectTo: "main", pathMatch: "full" }
   ]
 }];

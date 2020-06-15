@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,10 +20,19 @@ export class NavBarComponent implements OnInit {
     }
   }];
 
+  tabActive: number;
+
   menuMode = 'context';
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit() {
+    if(location.pathname.includes("mytask")){
+      this.tabActive = 2;
+
+    }else{
+      this.tabActive = 1;
+
+    }
   }
 
   changeOptionContext() {
@@ -30,6 +40,17 @@ export class NavBarComponent implements OnInit {
       this.menuMode = 'list';
     } else {
       this.menuMode = 'context';
+    }
+  }
+
+  navigate(link) {
+    if (!link) {
+      this.route.navigate(['/student/main']);
+      this.tabActive = 1;
+    } else {
+      this.route.navigate([link]);
+      this.tabActive = 2;
+
     }
   }
 

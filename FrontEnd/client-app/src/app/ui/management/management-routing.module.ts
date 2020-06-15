@@ -6,14 +6,7 @@ import { ManagementComponent } from './management.component';
 const routes: Routes = [{
   path: "",
   component: ManagementComponent,
-  children: [
-    {
-      path: "home",
-      loadChildren: () =>
-        import("./../home/home.module").then(
-          m => m.HomeModule
-        )
-    },{
+  children: [{
       path: "student",
       loadChildren: () =>
         import("./../student/student.module").then(

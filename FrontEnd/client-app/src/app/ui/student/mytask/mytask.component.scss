@@ -1,0 +1,62 @@
+:host {
+  .t-program-menu--item-wrap {
+    background-color: white;
+    border-radius: 8px;
+    width: 220px;
+    .t-program-menu--item {
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      line-height: 60px;
+      min-height: 60px;
+      text-align: left;
+      padding-left: 32px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .active {
+      background-color: #00ad9b;
+      .t-program-menu--item-name--text {
+        color: white;
+      }
+    }
+  }
+
+  .lesson-content {
+    position: absolute;
+    right: 0;
+    padding-top: 18px;
+    padding-left: 40px;
+    overflow: auto;
+    max-height: 90%;
+
+    .lesson--cards {
+      margin: 0 auto;
+    }
+
+    .lesson--card {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 168px;
+      width: 100%;
+      position: relative;
+      margin-right: 18px;
+    }
+
+    .a-b-new-menu .lesson--card {
+      margin-right: 22px;
+    }
+
+    .lesson--card.no-interest .lesson--card-name {
+      color: #727a78;
+    }
+
+    .lesson--card.last {
+      margin-right: 0;
+    }
+
+    .lesson--card-title {
+      height: 20px;
+    }
+  }
+}

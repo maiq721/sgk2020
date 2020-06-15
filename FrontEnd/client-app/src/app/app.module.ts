@@ -7,11 +7,12 @@ import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { BaseComponent } from './base/base-component/base-component.component';
-import { BasePopupComponent } from './base/base-popup/base-popup.component';
 import { DirectiveModule } from './directive/directive.module';
 import { ToolbarModule } from './ui/toolbar/toolbar.module';
 import { SingleCardModule } from './layouts';
-
+// Import the library module
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +24,14 @@ import { SingleCardModule } from './layouts';
     SingleCardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DirectiveModule
+    DirectiveModule,
+    FontAwesomeModule
   ],
   providers: [AuthService, ScreenService, AppInfoService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faSquare, faCheckSquare,faArrowLeft, faChevronCircleLeft,faChalkboard,faCheckCircle);
+  }
+}
