@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TMSBO
+namespace TMSBO.Model
 {
     [Table("Test")]
     public class Test:BaseModel

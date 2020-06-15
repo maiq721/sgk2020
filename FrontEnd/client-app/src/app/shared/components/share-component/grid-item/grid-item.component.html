@@ -1,0 +1,16 @@
+<a class="students-subject__item cursor-pointer" (click)="clickItem.emit(true)">
+    <div class="students-subject__item-wrap">
+        <h2 class="students-subject__item__title {{customClassImg}}">{{title}}</h2>
+        <div class="students-subject__item__stat">
+            <div class="students-subject__item__stat__circle">
+                <div class="circle" data-completed="0"><svg width="60" height="60">
+                        <circle transform="rotate(90)" r="26" cx="30" cy="-30"></circle>
+                        <circle transform="rotate(270.1)" style="stroke-dasharray:0px 408px;" r="26" cx="-30" cy="30">
+                        </circle>
+                    </svg></div><span>{{progress}}%</span>
+            </div>
+            <div class="students-subject__item__stat__status"><span class="info__about">Đã hoàn thành {{doneLesson}} bài trên
+                    {{totalLesson}} bài</span></div>
+        </div>
+    </div>
+</a>
