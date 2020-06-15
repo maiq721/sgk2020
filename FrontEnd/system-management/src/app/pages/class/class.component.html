@@ -1,8 +1,8 @@
-<h2 class="content-block">Người dùng</h2>
+<h2 class="content-block">Lớp học</h2>
 
 <div class="add-user btn btn-primary" style="margin-left: 16px; margin-bottom: 8px; font-size: 13px; cursor: pointer"
     (click)="showPpopupAdd()">
-    Thêm người dùng
+    Thêm lớp học
 </div>
 
 <dx-data-grid class="dx-card wide-card" [dataSource]="dataSource" [showBorders]="false" noDatatext="Không có dữ liệu"
@@ -12,28 +12,9 @@
     <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
     <dxo-filter-row [visible]="true"></dxo-filter-row>
 
-    <dxi-column dataField="UserName" caption="Tên đăng nhập" [width]="190" [hidingPriority]="2">
+    <dxi-column dataField="ClassName" caption="Tên Lớp học" [width]="200" [hidingPriority]="2">
     </dxi-column>
-    <dxi-column dataField="FullName" [width]="190" caption="Họ tên" [hidingPriority]="8">
-    </dxi-column>
-    <dxi-column dataField="Email" caption="Email" [hidingPriority]="6">
-    </dxi-column>
-    <dxi-column dataField="Mobile" caption="Số điện thoại" [hidingPriority]="5">
-    </dxi-column>
-    <dxi-column dataField="RoleName" caption="Vai trò" [allowSorting]="false" [hidingPriority]="7">
-    </dxi-column>
-    <dxi-column dataField="Status" caption="Trạng thái người dùng" cellTemplate="StatusTemplate" [hidingPriority]="3">
-        <div *dxTemplate="let status of 'StatusTemplate'" class="dis-flex">
-            <div *ngIf="status.value == 1" style="color: green;">
-                Đang hoạt động
-            </div>
-            <div *ngIf="status.value == 2" style="color: gray;">
-                Ngừng hoạt động
-            </div>
-            <div *ngIf="status.value == 3" style="color: orange;">
-                Chờ kích hoạt
-            </div>
-        </div>
+    <dxi-column dataField="ProgramName" caption="Tên chương trình học" [width]="300" [hidingPriority]="2">
     </dxi-column>
     <dxi-column dataField="Action" caption=" " cellTemplate="ActionTemplate" [hidingPriority]="4">
         <div *dxTemplate="let action of 'ActionTemplate'" class="dis-flex">
@@ -48,38 +29,21 @@
     </dxi-column>
 </dx-data-grid>
 
-<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Người dùng">
+<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Lóp học">
     <div *dxTemplate="let data of 'content'">
         <div class="popup-container">
             <div class="m-row">
                 <div class="medium labelinput">
-                    UserName:
+                    Tên lớp học:
                 </div>
-                <dx-text-box [(value)]="user.UserName"></dx-text-box>
+                <dx-text-box [(value)]="class.ClassName"></dx-text-box>
             </div>
             <div class="m-row">
                 <div class="medium labelinput">
-                    Họ tên:
+                    Tên chương trình:
                 </div>
-                <dx-text-box [(value)]="user.FullName"></dx-text-box>
-            </div>
-            <div class="m-row">
-                <div class="medium labelinput">
-                    Email:
-                </div>
-                <dx-text-box [(value)]="user.Email"></dx-text-box>
-            </div>
-            <div class="m-row">
-                <div class="medium labelinput">
-                    Số điện thoại:
-                </div>
-                <dx-text-box [(value)]="user.Mobile"></dx-text-box>
-            </div>
-            <div class="m-row">
-                <div class="medium labelinput">
-                    Vai trò:
-                </div>
-                <dx-text-box [(value)]="user.RoleName"></dx-text-box>
+                <dx-select-box [(value)]="class.ProgramID" [dataSource]="listProgram" valueExpr="ProgramID"
+                    displayExpr="ProgramName" searchEnabled="true" searchExpr="ProgramName"></dx-select-box>
             </div>
         </div>
         <div class="popup-footer dis-flex" style="float: right;">
@@ -93,10 +57,10 @@
     </div>
 </dx-popup>
 
-<dx-popup height="auto" width="400" [(visible)]="popupDeleteVisible" title="Xóa người dùng">
+<dx-popup height="auto" width="400" [(visible)]="popupDeleteVisible" title="Xóa Lớp học">
     <div *dxTemplate="let data of 'content'">
         <div class="popup-container">
-            Bạn có chắc chắn xóa người dùng này?
+            Bạn có chắc chắn xóa Lớp học này?
         </div>
         <div class="popup-footer dis-flex" style="float: right;">
             <div class="btn btn-light mr-2" style="cursor: pointer;" (click)="popupDeleteVisible = false">

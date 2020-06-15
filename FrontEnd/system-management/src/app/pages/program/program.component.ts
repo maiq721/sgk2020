@@ -1,52 +1,43 @@
+import { Program } from './../../model/program';
 import { Component, OnInit } from '@angular/core';
-import 'devextreme/data/odata/store';
-import { User } from 'src/app/model/user';
 
 @Component({
-  templateUrl: 'display-data.component.html'
+  selector: 'app-program',
+  templateUrl: './program.component.html',
+  styleUrls: ['./program.component.scss']
 })
-/// class mockup datagrid
-export class DisplayDataComponent implements OnInit{
+export class ProgramComponent implements OnInit {
   dataSource: any;
-  priority: any[];
   popupVisible: boolean = false;
-  user: any;
+  program: any;
   formMode = 1;
+  
   popupDeleteVisible: boolean = false;
+  constructor() { }
 
-
-  constructor() {
-    
-  }
-
-  ngOnInit(){
+  ngOnInit() {
     this.dataSource = [
       {
-        UserName: "maiq7212",
-        FullName: "Phạm Quỳnh Mai",
-        Email: "maiq721@gmail.com",
-        Mobile: "0663461479",
-        RoleName: "Admin",
-        Status: 1,
+        ProgramName: "Chương rình tiểu học",
         Action: ""
       }
     ]
   }
 
   showPpopupAdd(){
-    this.user = new User();
+    this.program = new Program();
     this.formMode = 1;
     this.popupVisible = true;
   }
 
   showPopupEdit(e){
-    this.user = e;
+    this.program = e;
     this.formMode = 2;
     this.popupVisible = true;
   }
 
   showPopupDelete(e){
-    this.user = e;
+    this.program = e;
     this.popupDeleteVisible = true;
   }
 
@@ -57,4 +48,5 @@ export class DisplayDataComponent implements OnInit{
   deleteData(){
     this.popupDeleteVisible = false;
   }
+
 }
