@@ -1,11 +1,11 @@
 export const navigation = [
   {
-    text: 'Home',
+    text: 'Trang chủ',
     path: '/home',
     icon: 'home'
   },
   {
-    text: 'Examples',
+    text: 'Quản trị',
     icon: 'folder',
     items: [
       {
@@ -13,8 +13,27 @@ export const navigation = [
         path: '/profile'
       },
       {
-        text: 'Display Data',
-        path: '/display-data'
+        text: 'Người dùng',
+        path: '/user'
+      }, 
+      {
+        text: 'Chương trình học',
+        path: '/program'
+      },
+      {
+        text: 'Lớp',
+        path: '/class'
+      },
+      {
+        text: 'Topic',
+        path: '/topic'
+      },
+      {
+        text: 'Môn học',
+        path: '/subject'
+      },{
+        text: 'Bài học',
+        path: '/lesson'
       }
     ]
   }

@@ -1,3 +1,8 @@
+import { LessonComponent } from './pages/lesson/lesson.component';
+import { TopicComponent } from './pages/topic/topic.component';
+import { SubjectComponent } from './pages/subject/subject.component';
+import { ClassComponent } from './pages/class/class.component';
+import { ProgramComponent } from './pages/program/program.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginFormComponent } from './shared/components';
@@ -9,7 +14,7 @@ import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 
 const routes: Routes = [
   {
-    path: 'display-data',
+    path: 'user',
     component: DisplayDataComponent,
     canActivate: [ AuthGuardService ]
   },
@@ -26,7 +31,27 @@ const routes: Routes = [
     path: 'login-form',
     component: LoginFormComponent,
     canActivate: [ AuthGuardService ]
-  }
+  },{
+    path: 'program',
+    component: ProgramComponent,
+    canActivate: [ AuthGuardService ]
+  },{
+    path: 'class',
+    component: ClassComponent,
+    canActivate: [ AuthGuardService ]
+  },{
+    path: 'subject',
+    component: SubjectComponent,
+    canActivate: [ AuthGuardService ]
+  },{
+    path: 'topic',
+    component: TopicComponent,
+    canActivate: [ AuthGuardService ]
+  },{
+    path: 'lesson',
+    component: LessonComponent,
+    canActivate: [ AuthGuardService ]
+  },
   // ,
   // {
   //   path: '**',
@@ -36,9 +61,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule],
+  imports: [RouterModule.forRoot(routes)],
   providers: [AuthGuardService],
-  exports: [RouterModule],
-  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

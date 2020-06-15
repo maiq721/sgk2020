@@ -1,0 +1,72 @@
+<h2 class="content-block">Chương trình</h2>
+
+<div class="add-user btn btn-primary" style="margin-left: 16px; margin-bottom: 8px; font-size: 13px; cursor: pointer" (click)="showPpopupAdd()">
+    Thêm chương trình
+</div>
+
+<dx-data-grid class="dx-card wide-card"
+    [dataSource]="dataSource"
+    [showBorders]="false" noDatatext="Không có dữ liệu"
+    [columnAutoWidth]="true"
+    [columnHidingEnabled]="true">
+
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+    <dxi-column
+        dataField="ProgramName" caption="Tên chương trình"
+        [width]="300"
+        [hidingPriority]="2">
+    </dxi-column>
+    <dxi-column
+        dataField="Action"
+        caption=" " cellTemplate="ActionTemplate"
+        [hidingPriority]="4">
+        <div *dxTemplate="let action of 'ActionTemplate'" class="dis-flex">
+            <div class="btn btn-primary" style="cursor: pointer;margin-right: 8px;" (click)="showPopupEdit(action.data)">
+                Sửa
+            </div>
+            <div class="btn btn-danger" style="cursor: pointer;" (click)="showPopupDelete(action.data)">
+                Xóa
+            </div>
+        </div>
+    </dxi-column>
+</dx-data-grid>
+
+<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Chương trình">
+    <div *dxTemplate="let data of 'content'">
+        <div class="popup-container">
+            <div class="m-row">
+                <div class="medium labelinput">
+                    Tên chương trình: 
+                </div>
+                <dx-text-box [(value)]="program.ProgramName"></dx-text-box>
+            </div>
+        </div>
+        <div class="popup-footer dis-flex" style="float: right;">
+            <div class="btn btn-light mr-2" style="cursor: pointer;" (click)="popupVisible = false">
+                Hủy
+            </div>
+            <div class="btn btn-primary " style="cursor: pointer;" (click)="saveData()">
+                Lưu
+            </div>
+        </div>
+    </div>
+</dx-popup>
+
+<dx-popup height="auto" width="400" [(visible)]="popupDeleteVisible" title="Xóa Chương trình">
+    <div *dxTemplate="let data of 'content'">
+        <div class="popup-container">
+            Bạn có chắc chắn xóa Chương trình này?
+        </div>
+        <div class="popup-footer dis-flex" style="float: right;">
+            <div class="btn btn-light mr-2" style="cursor: pointer;" (click)="popupDeleteVisible = false">
+                Hủy
+            </div>
+            <div class="btn btn-danger " style="cursor: pointer;" (click)="deleteData()">
+                Xóa
+            </div>
+        </div>
+    </div>
+</dx-popup>
