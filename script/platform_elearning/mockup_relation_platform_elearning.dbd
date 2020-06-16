@@ -57,7 +57,7 @@
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>263 px</Height>
+              <Height>246 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.class</Path>
@@ -103,7 +103,7 @@
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>229 px</Height>
+              <Height>212 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.subject</Path>
@@ -126,7 +126,7 @@
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>195 px</Height>
+              <Height>178 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.topic</Path>
@@ -149,7 +149,7 @@
             </Location>
             <Size>
               <Width>202 px</Width>
-              <Height>178 px</Height>
+              <Height>161 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.program</Path>
@@ -172,7 +172,7 @@
             </Location>
             <Size>
               <Width>196 px</Width>
-              <Height>365 px</Height>
+              <Height>348 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.user</Path>
@@ -195,7 +195,7 @@
             </Location>
             <Size>
               <Width>190 px</Width>
-              <Height>229 px</Height>
+              <Height>195 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.user_lesson</Path>
@@ -218,7 +218,7 @@
             </Location>
             <Size>
               <Width>181 px</Width>
-              <Height>212 px</Height>
+              <Height>178 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.user_topic</Path>
@@ -241,7 +241,7 @@
             </Location>
             <Size>
               <Width>177 px</Width>
-              <Height>229 px</Height>
+              <Height>195 px</Height>
             </Size>
             <DbOid>
               <Path>platform_elearning.user_class</Path>
@@ -256,10 +256,10 @@
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
-          <Scale>1.03</Scale>
+          <Scale>1.01</Scale>
           <Location>
-            <X>-667.961214525627 px</X>
-            <Y>-58.2524308434689 px</Y>
+            <X>-904.747419130125 px</X>
+            <Y>-74.455442732426 px</Y>
           </Location>
         </ViewPort>
       </Model>

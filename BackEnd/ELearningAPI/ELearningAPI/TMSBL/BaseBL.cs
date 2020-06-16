@@ -21,7 +21,6 @@ namespace TMSBL
         public string Proc_Delete = "Proc_{0}_Delete";
         protected string ApplicationCode;
         protected string _modelNamespace;
-        public int _tenantID = 1;
         protected DatabaseService DL;
         protected string AppCode = "E_Learning";
         public BaseBL()
@@ -47,7 +46,6 @@ namespace TMSBL
                 oEntity.CreatedDate = DateTime.Now;
                 oEntity.CreatedBy = _userName;
             }
-            oEntity.TenantID = _tenantID;
             oEntity.ModifiedBy = _userName;
             oEntity.ModifiedDate = DateTime.Now;
         }

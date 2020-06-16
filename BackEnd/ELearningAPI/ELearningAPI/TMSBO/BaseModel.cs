@@ -23,8 +23,6 @@ namespace TMSBO
 
         public string ModifiedBy { get; set; }
 
-        public int TenantID { get; set; }
-
         public EntityState State { get; set; } = EntityState.None;
         public string ExceptionText { get; set; }
         public List<ModelDetailConfig> ModelDetailConfigs { get; set; }
