@@ -1,0 +1,41 @@
+<!-- <div class="w-100" style="height: 20px;"></div> -->
+<div class="intro-background-container" id="intro">
+    <div class="intro-login-container">
+        <div class="container intro-container container-fluid d-flex justify-content-between">
+            <div class="intro_left d-flex flex-column mt-4" style="max-width: 350px;">
+                <div class="app-icon-header pt-1 ml-3 dx-font-l mr-3 d-flex justify-content-center">
+                    <fa-icon class="font-28" style="color: chocolate;" [icon]="['fas', 'chalkboard']"></fa-icon>
+                    <span class="ml-2">E-Learning</span>
+                </div>
+                <p class="mt-3">Platform E-Learning là nền tảng online để các học sinh Việt Nam thực hành bài tập dưới dạng tương tác.</p>
+                <a class="main_button" (click)="signUp()">Đăng ký</a>
+            </div>
+            <div class="intro_right">
+                <div id="login_container">
+                    <div class="login_title">PlatForm E-Learning</div>
+                    <form accept-charset="UTF-8" class="auth_login_form" >
+                        <div style="display:none"><input name="utf8" type="hidden" value="✓"><input
+                                name="authenticity_token" type="hidden"
+                                value="G5pLhGcLTwd+KY/Nb4g+8fO2UJ409SUiPQi3BUp7pi4="></div>
+                        <input type="hidden" id="auth_login_form_next" name="next" value="/home">
+                        <div class="input_group">
+                            <input autocomplete="off" id="login" name="login" placeholder="Tài khoản" tabindex="1"
+                                type="text" value="">
+                        </div>
+                        <div class="input_group">
+                            <input autocomplete="off" id="password" name="password" placeholder="Mật khẩu" tabindex="2"
+                                type="password" value="">
+                        </div>
+
+                        <div class="input_group input_group_submit">
+                            <button type="button" class="btn btn-success w-100" (click)="login()">Đăng nhập</button>
+                        </div>
+                        <div class="input_group forget_pass">
+                            <a class="text-white" href="/forget_password">Quên mật khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

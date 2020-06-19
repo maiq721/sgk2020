@@ -1,0 +1,92 @@
+:host {
+  .intro-background-container {
+    background-image: url("../../../../assets/image/intro_7-d86fe2afcc7cb3c387b6fc6f86f6f17d.png");
+  }
+  .intro-background-container {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-width: 900px;
+    max-width: 1300px;
+    padding-bottom: 48%;
+    margin: auto;
+    position: relative;
+    .intro-login-container {
+      width: 100%;
+      position: absolute;
+      top: 32px;
+      left: 0;
+      .container {
+        text-align: left;
+        padding-bottom: 90px;
+        text-align: center;
+        position: relative;
+      }
+
+      .main_button {
+        color: white;
+        font-size: 32px;
+        border-radius: 12px;
+        background-color: #2f95e6;
+        padding: 8px 20px;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      #login_container {
+        width: auto;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50px;
+        background-color: #ff5767;
+        padding: 30px 50px 0 50px;
+        margin-top: 20px;
+        vertical-align: top;
+        .login_title {
+          color: white;
+          font-size: 25px;
+          display: inline-block;
+          width: 100%;
+          vertical-align: top;
+        }
+        .input_group {
+          display: block;
+          margin: 10px;
+          text-align: center;
+          padding: 0;
+          input {
+            text-align: center;
+            font-size: 24px;
+            padding: 7px 3px;
+            width: 270px;
+            border-radius: 8px;
+            outline: none;
+          }
+          .input_group_submit {
+            padding: 0;
+            display: block;
+            margin: 0;
+          }
+          
+          .forget_pass {
+            text-decoration: underline;
+            padding: 0;
+            display: block;
+            margin-top: 15px;
+          }
+        }
+        .input_group_submit input {
+            background-color: #6fb755;
+            color: white;
+            font-size: 24px;
+            border-width: 0;
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-family: "CirceRounded-Regular", sans-serif;
+            cursor: pointer;
+            -webkit-appearance: none;
+          }
+      }
+    }
+  }
+}

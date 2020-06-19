@@ -1,0 +1,32 @@
+:host {
+  .tab {
+    background-color: #fff;
+    color: #2196f3;
+    border: 1px solid #2196f3;
+    width: 120px;
+    height: 32px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  .tab:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-right: none !important;
+  }
+  .tab:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .tab-active {
+    color: #fff;
+    width: 120px;
+    z-index: 1;
+    background-color: #2196f3;
+    font-weight: 600;
+    height: 32px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+
+}

@@ -1,0 +1,33 @@
+<div class="position-relative">
+    <dx-data-grid id="gridContainer-static" [height]="'70vh'" [dataSource]="listUserStatic" [showBorders]="true">
+        <dxo-search-panel [visible]="true" [width]="240" placeholder="Tìm kiếm..."></dxo-search-panel>
+
+        <dxi-column dataField="OrderNumber" [width]="80" caption="STT">
+        </dxi-column>
+
+        <dxi-column dataField="FullName" caption="Tên học sinh" [width]="350"></dxi-column>
+
+        <dxi-column dataField="Email" [width]="350" caption="Email học sinh">
+
+        </dxi-column>
+        <dxi-column dataField="Status" caption="Trạng thái"></dxi-column>
+
+        <dxi-column dataField="" cellTemplate="cellTemplate">
+            <div *dxTemplate="let cell of 'cellTemplate'">
+                <div class="d-flex cursor-pointer" (click)="1">
+                    <fa-icon class="font-17" [icon]="['fas', 'trash-alt']"></fa-icon>
+                    <div class="ml-2 font-17">Xóa</div>
+                </div>
+            </div>
+
+        </dxi-column>
+
+    </dx-data-grid>
+    <div class="position-absolute" style="top: 20px; left: 42px;">
+        <button type="button" class="btn btn-primary" (click)="visiblePopupAddUser = true">Thêm học sinh</button>
+    </div>
+
+</div>
+
+<app-popup-add-user *ngIf="visiblePopupAddUser" [visible]="visiblePopupAddUser"
+    (afterClose)="visiblePopupAddUser = false"></app-popup-add-user>

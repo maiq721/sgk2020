@@ -1,0 +1,34 @@
+<dx-popup [width]="500" [height]="360" [showTitle]="true" [title]="'Thêm học sinh vào lớp'" [dragEnabled]="true"
+ [(visible)]="visible" (onHidden)="closePopup()">
+  <div class="d-flex flex-column justify-content-between" *dxTemplate="let data of 'content'">
+    <div class="d-flex popup-container flex-column">
+        <div class="row mb-4">
+          <div class="col-3 font-17 title-field">Họ và tên *</div>
+          <div class="col-9">
+            <dx-text-box [placeholder]="'Nhập họ tên của học sinh'" [(value)]="currentUser.FullName"></dx-text-box>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-3 font-17 title-field">Email *</div>
+          <div class="col-9">
+            <dx-text-box [placeholder]="'Nhập email của học sinh'" [(value)]="currentUser.Email"></dx-text-box>
+          </div>
+        </div>
+    
+        <div class="row mt-4">
+          <div class="col-12 text-blue" style="font-style: italic;">
+            Chú ý: Vui lòng hãy gửi Email để học sinh của bạn có thể dễ dàng tìm thấy lớp học.
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="d-flex popup-footer w-100 justify-content-end">
+        <button type="button" class="btn btn-light mr-3" (click)="visible = false">Hủy</button>
+        <button type="button" class="btn btn-primary"
+          [ngClass]="{'disabled-btn': !currentUser.FullName || !currentUser.Email}"
+          (click)="submitSignUp()"><a class="w-100 h-100 text-white"
+            href="{{emailConfig}}">Đồng ý</a></button>
+      </div>
+  </div>
+</dx-popup>

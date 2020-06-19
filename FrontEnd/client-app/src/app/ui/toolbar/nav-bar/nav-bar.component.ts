@@ -26,10 +26,13 @@ export class NavBarComponent implements OnInit {
   constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit() {
-    if(location.pathname.includes("mytask")){
+    if (location.pathname.includes("mytask")) {
       this.tabActive = 2;
 
-    }else{
+    } else if (location.pathname.includes("myclass")) {
+      this.tabActive = 3;
+
+    } else {
       this.tabActive = 1;
 
     }
@@ -45,7 +48,7 @@ export class NavBarComponent implements OnInit {
 
   navigate(link) {
     if (!link) {
-      this.route.navigate(['/student/main']);
+      this.route.navigate(['/client/main']);
       this.tabActive = 1;
     } else {
       this.route.navigate([link]);

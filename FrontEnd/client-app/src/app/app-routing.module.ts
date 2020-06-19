@@ -6,13 +6,11 @@ import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 
 const routes: Routes = [
   {
-    path: "",
+    path: "client",
     loadChildren: () => import('./ui/management/management.module').then(m => m.ManagementModule)
-  },
-  {
-    path: 'login-form',
-    component: LoginFormComponent,
-    canActivate: [ AuthGuardService ]
+  },{
+    path: "login",
+    loadChildren: () => import('./ui/login/login.module').then(m => m.LoginModule)
   }
   // ,
   // {

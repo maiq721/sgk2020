@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PopupAddTaskComponent } from './popup-add-task/popup-add-task.component';
-import { DxPopupModule, DxTextBoxModule, DxValidatorModule, DxSelectBoxModule, DxNumberBoxModule, DxDateBoxModule } from 'devextreme-angular';
+import { DxPopupModule, DxTextBoxModule, DxValidatorModule, DxSelectBoxModule, DxNumberBoxModule } from 'devextreme-angular';
+import { PopupSignUpComponent } from './popup-sign-up/popup-sign-up.component';
+import { PopupAddUserComponent } from './popup-add-user/popup-add-user.component';
 
 
 
 @NgModule({
-  declarations: [PopupAddTaskComponent],
+  declarations: [PopupAddUserComponent, PopupSignUpComponent, PopupAddUserComponent],
   imports: [
     CommonModule,
     DxPopupModule,
@@ -14,8 +15,9 @@ import { DxPopupModule, DxTextBoxModule, DxValidatorModule, DxSelectBoxModule, D
     DxValidatorModule,
     DxSelectBoxModule,
     DxNumberBoxModule,
-    DxDateBoxModule
+    DxTextBoxModule,
+    DxSelectBoxModule
   ],
-  exports:[PopupAddTaskComponent]
+  exports:[PopupAddUserComponent,PopupSignUpComponent, PopupAddUserComponent]
 })
 export class PopupModule { }

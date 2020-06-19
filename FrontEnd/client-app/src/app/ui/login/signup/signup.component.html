@@ -1,0 +1,29 @@
+<div class="app-icon-header pt-1 ml-3 dx-font-l cursor-pointer mr-3 pt-4 pb-4 d-flex justify-content-center"
+    (click)="signIn()">
+    <fa-icon class="font-28" style="color: chocolate;" [icon]="['fas', 'chalkboard']"></fa-icon>
+    <span class="ml-2">E-Learning</span>
+</div>
+<div class="container-fluid invite-selector container-equal-heights d-flex">
+    <div class="align-center col-sm-6 d-flex flex-column align-items-center">
+        <div class="row fixed-height">
+            <div class="invite-block invite--teacher"></div>
+            <h2><b>Giáo viên</b></h2>
+            <div class="column-desc">Bạn sẽ có quyền truy cập vào trang cá nhân, trong đó có thể đăng ký các học sinh
+                của mình.</div>
+        </div>
+        <div class="row invite-row"><a class="invites--button" (click)="registerAccount(1)"
+                id="teacher-select-button">Đăng ký</a></div>
+    </div>
+    <div class="align-center col-sm-6 d-flex flex-column align-items-center">
+        <div class="row fixed-height">
+            <div class="invite-block invite--parent"></div>
+            <h2><b>Học sinh</b></h2>
+            <div class="column-desc">Bạn sẽ có quyền truy cập vào hệ thống để học và xem kết quả thống kê việc học của
+                mình.</div>
+        </div>
+        <div class="row invite-row"><a class="invites--button" (click)="registerAccount(2)"
+                id="parent-select-button">Đăng ký</a></div>
+    </div>
+</div>
+
+<app-popup-sign-up *ngIf="visiblePoupSignUp" [titlePopup]="titlePopup" [registerType]="registerType" [visible]="visiblePoupSignUp" (afterClose)="visiblePoupSignUp = false"></app-popup-sign-up>

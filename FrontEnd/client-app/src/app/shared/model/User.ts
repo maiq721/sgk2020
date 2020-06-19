@@ -18,7 +18,7 @@ Mobile:  string
 // 
 Email:  string 
 // trạng thái của user  (1: chưa kích hoạt , 2: chờ xác nhận, 3: đang hoạt động, 4:Ngừng kích hoạt , 5: đã xóa )
-Status?:  number 
+Status?:  any; 
 // 
 Password:  string 
 // 
@@ -29,4 +29,7 @@ RoleCode:  string
 RoleName:  string 
 // ưu vai trò, lưu dạng string: vd: Add; Edit
 PermissionDetail:  string 
+
+OrderNumber : number;
+
 }

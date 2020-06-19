@@ -1,0 +1,53 @@
+:host {
+  .invite-selector {
+    background: #f2f2f3;
+    border-radius: 4px;
+    padding-top: 30px;
+    .fixed-height {
+      height: 345px;
+      flex-direction: column;
+      align-items: center;
+      .invite--teacher {
+        background-image: url("../../../../assets/image/teacher-f8a276794127655b137d04b03550d2c5.svg");
+        width: 170px;
+        height: 170px;
+        background-repeat: no-repeat;
+      }
+      .invite--parent {
+        background-image: url("../../../../assets/image/parent-a54ba6a4a566e16598a6ba2f00ebcf73.svg");
+        width: 170px;
+        height: 170px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  .align-center {
+    text-align: center;
+    margin: 30px 0;
+  }
+  .column-desc {
+    font-size: 21px;
+    margin-bottom: 20px;
+    font-family: "Circe-Regular", sans-serif;
+    padding: 0 25px;
+  }
+  .invites--button {
+    -webkit-appearance: none;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 7px 20px 6px;
+    min-width: 120px;
+    text-align: center;
+    margin: 0;
+    background: #3fb3dc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    -webkit-transition: background-color, 0.2s;
+    -moz-transition: background-color, 0.2s;
+    transition: background-color, 0.2s;
+  }
+}

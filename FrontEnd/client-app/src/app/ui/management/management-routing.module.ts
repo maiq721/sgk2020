@@ -7,12 +7,12 @@ const routes: Routes = [{
   path: "",
   component: ManagementComponent,
   children: [{
-      path: "student",
+      path: "",
       loadChildren: () =>
         import("./../student/student.module").then(
           m => m.StudentModule
         )
-    },{ path: "", redirectTo: "student", pathMatch: "full" }]
+    },{ path: "", redirectTo: "", pathMatch: "full" }]
 }];
 
 @NgModule({

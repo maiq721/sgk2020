@@ -1,0 +1,60 @@
+<dx-popup [width]="600" [showTitle]="true" [title]="titlePopup" [dragEnabled]="true" [(visible)]="visible"
+  (onHidden)="popupClose($event)">
+  <div class="d-flex flex-column justify-content-between" *dxTemplate="let data of 'content'">
+    <div class="d-flex popup-container flex-column">
+      <div class="row mb-4">
+        <div class="col-3 font-17 title-field">Họ và tên *</div>
+        <div class="col-9">
+          <dx-text-box [placeholder]="'Nhập họ tên của bạn'" [(value)]="currentUser.FullName"></dx-text-box>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-3 font-17 title-field">Địa chỉ email *</div>
+        <div class="col-9">
+          <dx-text-box [placeholder]="'Nhập email của bạn'" [(value)]="currentUser.Email"></dx-text-box>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-3 font-17 title-field">Số điện thoại</div>
+        <div class="col-9">
+          <dx-text-box [placeholder]="'Nhập số di động'" [(value)]="currentUser.Mobile"></dx-text-box>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-3 font-17 title-field">Mật khẩu *</div>
+        <div class="col-9">
+          <dx-text-box [placeholder]="'Nhập mật khẩu'" [mode]="'password'" [(value)]="currentUser.Password">
+          </dx-text-box>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-3 font-17 title-field">Chương trình *</div>
+        <div class="col-9">
+          <dx-select-box [placeholder]="'Chương trình học bạn đang học hoặc đang giảng dạy'"
+            [(value)]="currentUser.ProgramID" [dataSource]="listProgram" [displayExpr]="'ProgramName'"
+            [searchEnabled]="'true'" [valueExpr]="'ProgramID'"></dx-select-box>
+
+        </div>
+      </div>
+
+      <div class="row mt-4" *ngIf="registerType === 1">
+        <div class="col-12 text-blue" style="font-style: italic;">
+          Chú ý: Sau khi nhập thông tin và tiến hành đăng ký tài khoản, vui lòng hãy gửi Email để chúng tôi xác thực tài
+          khoản cho bạn
+        </div>
+      </div>
+
+    </div>
+
+    <div class="d-flex popup-footer w-100 justify-content-end">
+      <button type="button" class="btn btn-light mr-3" (click)="visible = false">Hủy</button>
+      <button type="button" class="btn btn-primary"
+        [ngClass]="{'disabled-btn': !currentUser.FullName || !currentUser.Email || !currentUser.Password || !currentUser.ProgramID}"
+        (click)="submitSignUp()"><a *ngIf="registerType === 1" class="w-100 h-100 text-white"
+          href="{{emailConfig}}">Đồng ý</a><a *ngIf="registerType === 2">Đồng ý</a></button>
+    </div>
+  </div>
+</dx-popup>

@@ -25,6 +25,12 @@ const routes: Routes = [{
         import("./subject/subject.module").then(
           m => m.SubjectModule
         )
+    },{
+      path: "myclass",
+      loadChildren: () =>
+        import("./my-class/my-class.module").then(
+          m => m.MyClassModule
+        )
     },{ path: "", redirectTo: "main", pathMatch: "full" }
   ]
 }];
