@@ -16,6 +16,26 @@
     </dxi-column>
     <dxi-column dataField="ProgramName" caption="Tên chương trình học" [width]="300" [hidingPriority]="2">
     </dxi-column>
+    <dxi-column dataField="OwnerName" caption="Người tạo lớp học" [width]="150" [hidingPriority]="2" cellTemplate="OwnerTemplate">
+        <div *dxTemplate="let user of 'OwnerTemplate'">
+            <div *ngIf="user.value">
+                {{user.value}}
+            </div>
+            <div *ngIf="!user.value">
+                --
+            </div>
+        </div>
+    </dxi-column>
+    <dxi-column dataField="ClassType" caption="Loại" [width]="150" [hidingPriority]="2" cellTemplate="TypeTemplate">
+        <div *dxTemplate="let type of 'TypeTemplate'">
+            <div *ngIf="type.value === 1" style="color: green;">
+                Hệ thống
+            </div>
+            <div *ngIf="type.value === 2" style="color: grey;">
+                Người dùng tự tạo
+            </div>
+        </div>
+    </dxi-column>
     <dxi-column dataField="Action" caption=" " cellTemplate="ActionTemplate" [hidingPriority]="4">
         <div *dxTemplate="let action of 'ActionTemplate'" class="dis-flex">
             <div class="btn btn-primary" style="cursor: pointer;margin-right: 8px;"
@@ -29,7 +49,7 @@
     </dxi-column>
 </dx-data-grid>
 
-<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Lóp học">
+<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Lớp học">
     <div *dxTemplate="let data of 'content'">
         <div class="popup-container">
             <div class="m-row">
@@ -40,10 +60,16 @@
             </div>
             <div class="m-row">
                 <div class="medium labelinput">
-                    Tên chương trình:
+                    Chương trình:
                 </div>
-                <dx-select-box [(value)]="class.ProgramID" [dataSource]="listProgram" valueExpr="ProgramID"
+                <dx-select-box [(value)]="class.ProgramID" [dataSource]="listProgram" valueExpr="ID"
                     displayExpr="ProgramName" searchEnabled="true" searchExpr="ProgramName"></dx-select-box>
+            </div>
+            <div class="m-row">
+                <div class="medium labelinput">
+                    Mô tả: 
+                </div>
+                <dx-text-area [(value)]="class.Decription"></dx-text-area>
             </div>
         </div>
         <div class="popup-footer dis-flex" style="float: right;">

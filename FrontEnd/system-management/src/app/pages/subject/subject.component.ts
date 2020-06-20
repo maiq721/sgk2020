@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'src/app/model/subject';
+import { SubjectService } from 'src/app/service/subject.service';
+import { ClassService } from 'src/app/service/class.service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-subject',
@@ -15,29 +18,35 @@ export class SubjectComponent implements OnInit {
   formMode = 1;
   popupDeleteVisible: boolean = false;
   listClass :any;
-  constructor() { }
+
+  unSubscribe : any
+
+  constructor(
+    private subjectSV: SubjectService,
+    private classSV: ClassService,
+  ) { }
 
   ngOnInit() {
-    this.dataSource = [
-      {
-        ClassName: "Lớp 1",
-        SubjectName: "Môn Toán",
-        ClassID: 1,
-        Action: ""
-      },
-      {
-        ClassName: "Lớp 2",
-        SubjectName: "Môn Tiếng việt",
-        ClassID: 1,
-        Action: ""
+    this.loadData();
+    this.loadClasslist();
+  }
+
+  loadData(){
+    this.subjectSV.getAllData().subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.dataSource = dataRes["Result"];
       }
-    ];
-    this.listClass = [
-      {
-        ClassName: "Lớp 1",
-        ClassID: 1
+    });
+  }
+
+  loadClasslist(){
+    this.classSV.getClass().subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.listClass = dataRes["Result"];
       }
-    ]
+    });
   }
 
 

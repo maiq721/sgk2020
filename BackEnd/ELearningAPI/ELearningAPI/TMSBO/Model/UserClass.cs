@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Library;
 namespace TMSBO.Model
 {
     [ConfigTable("user_class", "", false, "")]

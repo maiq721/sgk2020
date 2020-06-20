@@ -19,7 +19,7 @@ import { LessonComponent } from './pages/lesson/lesson.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DisplayDataComponent } from './pages/display-data/display-data.component';
-import { DxDataGridModule, DxFormModule, DxPopupModule, DxTextBoxModule, DxSelectBoxModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule, DxPopupModule, DxTextBoxModule, DxSelectBoxModule, DxTextAreaModule } from 'devextreme-angular';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -47,7 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    DirectiveModule, DxDataGridModule, DxFormModule, DxPopupModule, DxTextBoxModule, DxSelectBoxModule
+    DirectiveModule, DxDataGridModule, DxFormModule, DxPopupModule, DxTextBoxModule, DxSelectBoxModule, DxTextAreaModule
   ],
   providers: [AuthService, ScreenService, AppInfoService],
   bootstrap: [AppComponent]

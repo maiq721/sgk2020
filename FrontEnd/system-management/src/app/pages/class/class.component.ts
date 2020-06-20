@@ -1,13 +1,16 @@
 import { ClassService } from './../../service/class.service';
 import { Class } from './../../model/class';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ProgramService } from 'src/app/service/program.service';
 
 @Component({
   selector: 'app-class',
   templateUrl: './class.component.html',
   styleUrls: ['./class.component.scss']
 })
-export class ClassComponent implements OnInit {
+export class ClassComponent implements OnInit, OnDestroy {
 
   dataSource: any;
   priority: any[];
@@ -17,58 +20,39 @@ export class ClassComponent implements OnInit {
   popupDeleteVisible: boolean = false;
   listProgram :any;
 
+  unSubscribe = new Subject<void>();
 
   constructor(
-    private classSV: ClassService
+    private classSV: ClassService,
+    private programSV: ProgramService
   ) {
     
   }
 
+  ngOnDestroy(): void {
+    this.unSubscribe.next();
+    this.unSubscribe.complete();
+  }
   ngOnInit(){
-    this.dataSource = [
-      {
-        ClassName: "Lớp 1",
-        ProgramName: "Chuong trình tiểu học",
-        ProgramID: 1,
-        Action: ""
-      },
-      {
-        ClassName: "Lớp 2",
-        ProgramID: 1,
-        ProgramName: "Chuong trình tiểu học",
-        Action: ""
-      },
-      {
-        ClassName: "Lớp 3",
-        ProgramID: 1,
-        ProgramName: "Chuong trình tiểu học",
-        Action: ""
-      },
-      {
-        ProgramID: 1,
-        ClassName: "Lớp 4",
-        ProgramName: "Chuong trình tiểu học",
-        Action: ""
-      },
-      {
-        ProgramID: 1,
-        ClassName: "Lớp 5",
-        ProgramName: "Chuong trình tiểu học",
-        Action: ""
-      }
-    ];
-    this.listProgram = [
-      {
-        ProgramName: "Chương trình tiểu học",
-        ProgramID: 1
-      }
-    ];
     this.loadData();
+    this.loadProgram();
   }
 
   loadData(){
-    this.classSV.getClass().subscribe(res => {
-      console.log(res);
+    this.classSV.getClass().pipe(takeUntil(this.unSubscribe)).subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.dataSource = dataRes["Result"];
+      }
+    });
+  }
+
+  loadProgram(){
+    this.programSV.getallData().pipe(takeUntil(this.unSubscribe)).subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.listProgram = dataRes["Result"];
+      }
     });
   }
 

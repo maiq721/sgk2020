@@ -1,5 +1,8 @@
+import { LessonService } from './../../service/lesson.service';
+import { TopicService } from './../../service/topic.service';
 import { Lesson } from './../../model/lesson';
 import { Component, OnInit } from '@angular/core';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-lesson',
@@ -15,33 +18,32 @@ export class LessonComponent implements OnInit {
   formMode = 1;
   popupDeleteVisible: boolean = false;
   listTopic :any;
-  constructor() { }
+  constructor(
+    private topicsv: TopicService,
+    private lessonSv: LessonService
+  ) { }
 
   ngOnInit() {
-    this.dataSource = [
-      {
-        TopicName: "Cộng trừ 2 chũ số",
-        LessonName: "Bài 1",
-        TopicID: 1,
-        Action: ""
-      },
-      {
-        TopicName: "Cách đặt câu vói chủ ngữ",
-        LessonName: "Bài 2",
-        TopicID: 2,
-        Action: ""
+    this.loadData();
+    this.loadListTopic();
+  }
+
+  loadData(){
+    this.lessonSv.getAllData().subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.dataSource = dataRes["Result"];
       }
-    ];
-    this.listTopic = [
-      {
-        TopicName: "Cộng trừ 2 chũ số",
-        TopicID: 1
-      },
-      {
-        TopicName: "Cách đặt câu vói chủ ngữ",
-        TopicID: 2
+    });
+  }
+
+  loadListTopic(){
+    this.topicsv.getAllData().subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.listTopic = dataRes["Result"];
       }
-    ]
+    });
   }
 
 
