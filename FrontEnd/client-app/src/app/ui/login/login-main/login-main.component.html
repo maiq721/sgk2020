@@ -20,11 +20,11 @@
                         <input type="hidden" id="auth_login_form_next" name="next" value="/home">
                         <div class="input_group">
                             <input autocomplete="off" id="login" name="login" placeholder="Tài khoản" tabindex="1"
-                                type="text" value="">
+                                type="text" [(ngModel)]="uUsername">
                         </div>
                         <div class="input_group">
                             <input autocomplete="off" id="password" name="password" placeholder="Mật khẩu" tabindex="2"
-                                type="password" value="">
+                                type="password" [(ngModel)]="uPassword">
                         </div>
 
                         <div class="input_group input_group_submit">

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using TMSBL;
 using TMSBO;
 
 namespace TMSAPI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/test")]
+    [BasicAuthentication]
     public class TestController : BaseController
     {
         public TestController(ITestBL testBL)
@@ -27,7 +30,7 @@ namespace TMSAPI.Controllers
             ServiceResult res = new ServiceResult();
             try
             {
-                 res.Data = (this.BL as ITestBL).Test();
+                 res.Data = "token OK";
                 //res.Data = this.BL... => gọi thẳng vào base
             }
             catch(Exception ex)

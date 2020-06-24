@@ -13,6 +13,8 @@ import { SingleCardModule } from './layouts';
 // Import the library module
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/services/token-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,7 @@ import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard
   imports: [
     BrowserModule,
     ToolbarModule,
+    HttpClientModule,
     LoginFormModule,
     SingleCardModule,
     AppRoutingModule,
@@ -27,11 +30,15 @@ import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard
     DirectiveModule,
     FontAwesomeModule
   ],
-  providers: [AuthService, ScreenService, AppInfoService],
+  providers: [AuthService, ScreenService, AppInfoService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faSquare, faCheckSquare,faArrowLeft, faChevronCircleLeft,faChalkboard,faCheckCircle);
+    library.addIcons(faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle);
   }
 }

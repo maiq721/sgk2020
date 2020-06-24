@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Routing;
 using TMSBL;
 using Unity;
 using Unity.AspNet.WebApi;
@@ -12,6 +14,9 @@ namespace TMSAPI
     {
         public static void Register(HttpConfiguration config)
         {
+            // Web API configuration and services
+            config.EnableCors();
+            config.Filters.Add(new BasicAuthenticationAttribute());
             // unity for denpendency injection
             var container = new UnityContainer();
             //đăng ký BL
@@ -31,13 +36,23 @@ namespace TMSAPI
             // Web API configuration and services
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+            config.MapHttpAttributeRoutes(new CustomDirectRouteProvider());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+        }
+    }
+
+    public class CustomDirectRouteProvider : DefaultDirectRouteProvider
+    {
+        protected override IReadOnlyList<IDirectRouteFactory>
+        GetActionRouteFactories(HttpActionDescriptor actionDescriptor)
+        {
+            return actionDescriptor.GetCustomAttributes<IDirectRouteFactory>
+            (inherit: true);
         }
     }
 }

@@ -1,0 +1,4 @@
+{
+    "loginAPI": "http://localhost:57999/api/user/login",
+    "serverAPI":"http://localhost:57999/api/"
+}
