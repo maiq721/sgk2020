@@ -10,5 +10,6 @@ namespace TMSBL
     public  interface IProgramBL : IBaseBL
     {
         ServiceResult GetAllData();
+        bool DeleteData(int id);
     }
 }

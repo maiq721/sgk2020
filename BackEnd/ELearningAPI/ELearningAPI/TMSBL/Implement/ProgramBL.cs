@@ -16,5 +16,12 @@ namespace TMSBL
             res.Data = DL.Query(query, System.Data.CommandType.Text);
             return res;
         }
+
+        public bool DeleteData(int id)
+        {
+            var res = false;
+            res = ExecuteScalarUsingStoredProcedure<bool>("Proc_Program_delete");
+            return res;
+        }
     }
 }

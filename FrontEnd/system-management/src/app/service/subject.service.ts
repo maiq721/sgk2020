@@ -16,4 +16,14 @@ export class SubjectService {
     const uri = `http://localhost:57999/api/subject/getAll`;
     return this.http.get<ServiceResult>(uri);
   }
+
+  save(param) : Observable<ServiceResult>{
+    const uri = `http://localhost:57999/api/subject/save`;
+    return this.http.post<ServiceResult>(uri, param);
+  }
+
+  delete(id) : Observable<ServiceResult>{
+    const uri = `http://localhost:57999/api/subject/delete/${id}`;
+    return this.http.delete<ServiceResult>(uri);
+  }
 }

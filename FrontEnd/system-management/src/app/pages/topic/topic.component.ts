@@ -63,11 +63,24 @@ export class TopicComponent implements OnInit {
   }
 
   saveData(){
-    this.popupVisible = false;
+    if(this.topic.TopicName.trim()){
+      this.popupVisible = false;
+      this.topic.State = this.formMode == 1 ? 1 : 2;
+      this.topicSv.save(this.topic).subscribe(res => {
+        if(res.Success){
+          this.loadData();
+        }
+      });
+    }
   }
 
   deleteData(){
     this.popupDeleteVisible = false;
+    this.topicSv.delete(this.topic.ID).subscribe(res => {
+      if(res.Success){
+        this.loadData();
+      }
+    });
   }
 
 

@@ -16,7 +16,7 @@ namespace TMSAPI.Controllers
         public TopicController(ITopicBL topicBL)
         {
             this.BL = topicBL;
-            //this.CurrentModelType = typeof(Model.Candidate);
+            this.CurrentModelType = typeof(TMSBO.Model.Topic);
         }
 
         [HttpGet]

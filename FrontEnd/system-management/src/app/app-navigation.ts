@@ -10,30 +10,37 @@ export const navigation = [
     items: [
       {
         text: 'Profile',
-        path: '/profile'
+        path: '/profile',
+        icon: 'contains'
       },
       {
         text: 'Người dùng',
-        path: '/user'
+        path: '/user',
+        icon: 'user'
       }, 
       {
         text: 'Chương trình học',
-        path: '/program'
+        path: '/program',
+        icon: 'bookmark'
       },
       {
         text: 'Lớp',
-        path: '/class'
+        path: '/class',
+        icon: 'box'
       },
       {
         text: 'Topic',
-        path: '/topic'
+        path: '/topic',
+        icon: 'group'
       },
       {
         text: 'Môn học',
-        path: '/subject'
+        path: '/subject',
+        icon: 'doc'
       },{
         text: 'Bài học',
-        path: '/lesson'
+        path: '/lesson',
+        icon: 'export'
       }
     ]
   }

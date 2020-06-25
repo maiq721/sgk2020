@@ -74,11 +74,25 @@ export class ClassComponent implements OnInit, OnDestroy {
   }
 
   saveData(){
-    this.popupVisible = false;
+    if(this.class.ClassName.trim()){
+      this.popupVisible = false;
+      this.class.State = this.formMode == 1 ? 1 : 2;
+      this.class.ClassType = 1;
+      this.classSV.save(this.class).subscribe(res => {
+        if(res.Success){
+          this.loadData();
+        }
+      });
+    }
   }
 
   deleteData(){
     this.popupDeleteVisible = false;
+    this.classSV.delete(this.class.ID).subscribe(res => {
+      if(res.Success){
+        this.loadData();
+      }
+    });
   }
 
 }

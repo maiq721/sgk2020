@@ -68,11 +68,24 @@ export class SubjectComponent implements OnInit {
   }
 
   saveData(){
-    this.popupVisible = false;
+    if(this.subject.SubjectName.trim()){
+      this.popupVisible = false;
+      this.subject.State = this.formMode == 1 ? 1 : 2;
+      this.subjectSV.save(this.subject).subscribe(res => {
+        if(res.Success){
+          this.loadData();
+        }
+      });
+    }
   }
 
   deleteData(){
     this.popupDeleteVisible = false;
+    this.subjectSV.delete(this.subject.ID).subscribe(res => {
+      if(res.Success){
+        this.loadData();
+      }
+    });
   }
 
 }

@@ -57,11 +57,24 @@ export class ProgramComponent implements OnInit, OnDestroy {
   }
 
   saveData(){
-    this.popupVisible = false;
+    if(this.program.ProgramName.trim()){
+      this.popupVisible = false;
+      this.program.State = this.formMode == 1 ? 1 : 2;
+      this.programSV.save(this.program).subscribe(res => {
+        if(res.Success){
+          this.loadData();
+        }
+      });
+    }
   }
 
   deleteData(){
     this.popupDeleteVisible = false;
+    this.programSV.delete(this.program.ID).subscribe(res => {
+      if(res.Success){
+        this.loadData();
+      }
+    });
   }
 
 }

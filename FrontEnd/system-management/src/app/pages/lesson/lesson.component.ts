@@ -65,11 +65,24 @@ export class LessonComponent implements OnInit {
   }
 
   saveData(){
-    this.popupVisible = false;
+    if(this.lesson.LessonName.trim()){
+      this.popupVisible = false;
+      this.lesson.State = this.formMode == 1 ? 1 : 2;
+      this.lessonSv.save(this.lesson).subscribe(res => {
+        if(res.Success){
+          this.loadData();
+        }
+      });
+    }
   }
 
   deleteData(){
     this.popupDeleteVisible = false;
+    this.lessonSv.delete(this.lesson.ID).subscribe(res => {
+      if(res.Success){
+        this.loadData();
+      }
+    });
   }
 
 }

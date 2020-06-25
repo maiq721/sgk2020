@@ -16,7 +16,7 @@ namespace TMSAPI.Controllers
         public SubjectController(ISubjectBL subjectBL)
         {
             this.BL = subjectBL;
-            //this.CurrentModelType = typeof(Model.Candidate);
+            this.CurrentModelType = typeof(TMSBO.Model.Subject);
         }
 
         [HttpGet]

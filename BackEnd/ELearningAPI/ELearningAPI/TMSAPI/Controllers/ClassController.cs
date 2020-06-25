@@ -13,10 +13,10 @@ namespace TMSAPI.Controllers
     [RoutePrefix("api/class")]
     public class ClassController : BaseController
     {
-        public ClassController(IClassBL classBL)
+        public ClassController(IClassBL classBL) : base()
         {
             this.BL = classBL;
-            //this.CurrentModelType = typeof(Model.Candidate);
+            this.CurrentModelType = typeof(TMSBO.Model.Class);
         }
 
         [HttpGet]

@@ -16,7 +16,7 @@ namespace TMSAPI.Controllers
         public LessonController(ILessonBL lessonBL)
         {
             this.BL = lessonBL;
-            //this.CurrentModelType = typeof(Model.Candidate);
+            this.CurrentModelType = typeof(TMSBO.Model.Lesson);
         }
 
         [HttpGet]
