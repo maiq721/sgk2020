@@ -42,8 +42,14 @@
                 <div class="medium labelinput">
                     Tên lớp học:
                 </div>
-                <dx-select-box [(value)]="subject.ClassID" [dataSource]="listClass" valueExpr="ClassID"
+                <dx-select-box [(value)]="subject.ClassID" [dataSource]="listClass" valueExpr="ID"
                     displayExpr="ClassName" searchEnabled="true" searchExpr="ClassName"></dx-select-box>
+            </div>
+            <div class="m-row">
+                <div class="medium labelinput">
+                    Mô tả: 
+                </div>
+                <dx-text-area [(value)]="subject.Description"></dx-text-area>
             </div>
         </div>
         <div class="popup-footer dis-flex" style="float: right;">

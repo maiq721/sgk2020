@@ -4,4 +4,6 @@ export class Subject extends BaseEntity{
     SubjectName: string;
     ClassID: number;
     ClassName: string;
+    Description: string;
+    Image: string;
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using TMSBL;
+using TMSBO;
 using TMSBO.Model;
 
 namespace TMSAPI.Controllers
@@ -88,6 +89,40 @@ namespace TMSAPI.Controllers
             {
                 res.OnException(ex);
                 CommonLog.CommonErrorLog(ex, ex.Message);
+            }
+            return res;
+        }
+
+        [HttpGet]
+        [Route("lockUser/{userid}/{status}")]
+        public async Task<ServiceResponse> LockUser(int userid, int status)
+        {
+            var res = new ServiceResponse();
+            try
+            {
+                res.Success = (this.BL as IUserBL).LockUser(userid, status);
+            }
+            catch (Exception ex)
+            {
+                res.OnException(ex);
+                CommonLog.CommonErrorLog(ex, ex.Message);
+            }
+            return res;
+        }
+
+        [HttpGet]
+        [Route("getAll")]
+        public async Task<ServiceResult> GetAll()
+        {
+            var res = new ServiceResult();
+            try
+            {
+                res = (this.BL as IUserBL).GetAllData();
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                throw;
             }
             return res;
         }

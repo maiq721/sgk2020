@@ -1,3 +1,4 @@
+import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import 'devextreme/data/odata/store';
 import { User } from 'src/app/model/user';
@@ -15,22 +16,26 @@ export class DisplayDataComponent implements OnInit{
   popupDeleteVisible: boolean = false;
 
 
-  constructor() {
+  constructor(
+    private userSv: UserService
+  ) {
     
   }
 
   ngOnInit(){
     this.dataSource = [
-      {
-        UserName: "maiq7212",
-        FullName: "Phạm Quỳnh Mai",
-        Email: "maiq721@gmail.com",
-        Mobile: "0663461479",
-        RoleName: "Admin",
-        Status: 1,
-        Action: ""
+      
+    ];
+    this.loadData();
+  }
+
+  loadData(){
+    this.userSv.getAllData().subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.dataSource = dataRes["Result"];
       }
-    ]
+    });
   }
 
   showPpopupAdd(){
@@ -51,7 +56,23 @@ export class DisplayDataComponent implements OnInit{
   }
 
   saveData(){
-    this.popupVisible = false;
+    if(this.user.FullName.trim()){
+      this.popupVisible = false;
+      this.user.State = this.formMode == 1 ? 1 : 2;
+      this.userSv.save(this.user).subscribe(res => {
+        if(res.Success){
+          this.loadData();
+        }
+      });
+    }
+  }
+
+  lockUser(e, status){
+    this.userSv.lockUser(e.UserID, status).subscribe(res => {
+      if(res && res.Success){
+        this.loadData();
+      }
+    });
   }
 
   deleteData(){
