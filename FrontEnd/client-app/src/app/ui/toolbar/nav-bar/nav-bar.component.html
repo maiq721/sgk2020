@@ -7,17 +7,20 @@
             </div>
             <div class="nav-ul-item w-100">
                 <!-- item các mục ở đây -->
-                <div class="headbar--main-pages w-100">
-                    <a class="active font-17 mr-3 cursor-pointer" [ngClass]="{'medium text-blue': tabActive === 1}" (click)="navigate()">Main page</a>
-                    <a class="font-17 cursor-pointer"  [ngClass]="{'medium text-blue': tabActive === 2}" (click)="navigate('/client/mytask')">My classes</a>
+                <div class="headbar--main-pages w-100 ml-3">
+                    <a class="active font-17 mr-3 cursor-pointer" [ngClass]="{'medium text-blue': tabActive === 1}" (click)="navigate()">Trang chủ</a>
+                    <a class="font-17 cursor-pointer mr-3"  [ngClass]="{'medium text-blue': tabActive === 2}" (click)="navigate('/client/mytask')">Bài học của tôi</a>
+                    <a class="font-17 cursor-pointer"  [ngClass]="{'medium text-blue': tabActive === 3}" (click)="navigate('/client/myclass')">Lớp học của tôi</a>
                 </div>
+
             </div>
-            <div class="user-panel mr-3 cursor-hovered xterm-cursor-pointer" (click)="changeOptionContext()">
-                <div class="user-info">
+            <div class="user-panel mr-3 cursor-hovered cursor-pointer position-relative" (click)="changeOptionContext()">
+                <div class="user-info position-absolute back-white" style="top: -20px; background-color: #A7FFEB; z-index: 3;">
                     <div class="image-container">
                         <div class="user-image"></div>
                     </div>
-                    <div class="user-name d-flex justify-content-end">Nguyễn Thu Hà</div>
+                    <div class="user-name d-flex justify-content-end">
+                        <app-user-panel [menuItems]="menuItems" [menuMode]="menuMode" [name]="userName"></app-user-panel></div>
                 </div>
 
             </div>

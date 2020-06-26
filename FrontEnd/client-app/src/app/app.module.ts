@@ -12,7 +12,7 @@ import { ToolbarModule } from './ui/toolbar/toolbar.module';
 import { SingleCardModule } from './layouts';
 // Import the library module
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/services/token-interceptor.service';
 @NgModule({
@@ -39,6 +39,6 @@ import { AuthInterceptor } from './shared/services/token-interceptor.service';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle);
+    library.addIcons(faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle, faEdit, faTrashAlt);
   }
 }

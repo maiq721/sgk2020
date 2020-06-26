@@ -12,12 +12,11 @@ const routes: Routes = [
     path: "login",
     loadChildren: () => import('./ui/login/login.module').then(m => m.LoginModule)
   }
-  // ,
-  // {
-  //   path: '**',
-  //   redirectTo: 'home',
-  //   canActivate: [ AuthGuardService ]
-  // }
+  ,
+  {
+    path: '**',
+    redirectTo: 'login'
+  }
 ];
 
 @NgModule({
