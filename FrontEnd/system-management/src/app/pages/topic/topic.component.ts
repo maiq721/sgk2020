@@ -1,5 +1,7 @@
+import { TopicService } from './../../service/topic.service';
 import { Component, OnInit } from '@angular/core';
 import { Topic } from 'src/app/model/topic';
+import { SubjectService } from 'src/app/service/subject.service';
 
 @Component({
   selector: 'app-topic',
@@ -15,33 +17,31 @@ export class TopicComponent implements OnInit {
   formMode = 1;
   popupDeleteVisible: boolean = false;
   listSubject :any;
-  constructor() { }
+  constructor(
+    private subjectSV: SubjectService,
+    private topicSv: TopicService
+  ) { }
 
   ngOnInit() {
-    this.dataSource = [
-      {
-        TopicName: "Cộng trừ 2 chũ số",
-        SubjectName: "Môn Toán",
-        SubjectID: 1,
-        Action: ""
-      },
-      {
-        TopicName: "Cách đặt câu vói chủ ngữ",
-        SubjectName: "Môn Tiếng việt",
-        SubjectID: 2,
-        Action: ""
+    this.loadData();
+    this.loadSubjectList();
+  }
+  loadData(){
+    this.topicSv.getAllData().subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.dataSource = dataRes["Result"];
       }
-    ];
-    this.listSubject = [
-      {
-        SubjectName: "Môn Toán",
-        SubjectID: 1
-      },
-      {
-        SubjectName: "Môn Tiếng việt",
-        SubjectID: 2
+    });
+  }
+
+  loadSubjectList(){
+    this.subjectSV.getAllData().subscribe(res => {
+      if(res && res.Success){
+        const dataRes = res.Data;
+        this.listSubject = dataRes["Result"];
       }
-    ]
+    });
   }
 
 
@@ -63,11 +63,24 @@ export class TopicComponent implements OnInit {
   }
 
   saveData(){
-    this.popupVisible = false;
+    if(this.topic.TopicName.trim()){
+      this.popupVisible = false;
+      this.topic.State = this.formMode == 1 ? 1 : 2;
+      this.topicSv.save(this.topic).subscribe(res => {
+        if(res.Success){
+          this.loadData();
+        }
+      });
+    }
   }
 
   deleteData(){
     this.popupDeleteVisible = false;
+    this.topicSv.delete(this.topic.ID).subscribe(res => {
+      if(res.Success){
+        this.loadData();
+      }
+    });
   }
 
 

@@ -4,5 +4,9 @@ export class Lesson extends BaseEntity{
     LessonName: string;
     TopicID: number;
     TopicName: string;
-    UrlSubLink: string;
+    ProgramID: number;
+    Status: number;
+    Description: string;
+    Image: string;
+    LinkURL: string;
 }

@@ -18,16 +18,16 @@
     </dxi-column>
     <dxi-column dataField="Email" caption="Email" [hidingPriority]="6">
     </dxi-column>
-    <dxi-column dataField="Mobile" caption="Số điện thoại" [hidingPriority]="5">
+    <dxi-column dataField="Mobile" [width]="120" caption="Số điện thoại" [hidingPriority]="5">
     </dxi-column>
-    <dxi-column dataField="RoleName" caption="Vai trò" [allowSorting]="false" [hidingPriority]="7">
+    <dxi-column dataField="RoleName" [width]="150" caption="Vai trò" [allowSorting]="false" [hidingPriority]="7">
     </dxi-column>
-    <dxi-column dataField="Status" caption="Trạng thái người dùng" cellTemplate="StatusTemplate" [hidingPriority]="3">
+    <dxi-column dataField="Status" [width]="140" caption="Trạng thái người dùng" cellTemplate="StatusTemplate" [hidingPriority]="3">
         <div *dxTemplate="let status of 'StatusTemplate'" class="dis-flex">
             <div *ngIf="status.value == 1" style="color: green;">
                 Đang hoạt động
             </div>
-            <div *ngIf="status.value == 2" style="color: gray;">
+            <div *ngIf="status.value == 4" style="color: gray;">
                 Ngừng hoạt động
             </div>
             <div *ngIf="status.value == 3" style="color: orange;">
@@ -41,8 +41,14 @@
                 (click)="showPopupEdit(action.data)">
                 Sửa
             </div>
-            <div class="btn btn-danger" style="cursor: pointer;" (click)="showPopupDelete(action.data)">
+            <div class="btn btn-danger" style="cursor: pointer;margin-right: 8px;" (click)="showPopupDelete(action.data)">
                 Xóa
+            </div>
+            <div class="btn btn-warning" style="cursor: pointer;" (click)="lockUser(action.data, 4)" *ngIf="action.data.Status == 1">
+                Khóa
+            </div>
+            <div class="btn btn-success" style="cursor: pointer;" (click)="lockUser(action.data, 1)" *ngIf="action.data.Status == 4">
+                Kích hoạt
             </div>
         </div>
     </dxi-column>

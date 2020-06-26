@@ -4,4 +4,8 @@ export class Class extends BaseEntity{
     ClassName: string;
     ProgramID: number;
     ProgramName: string;
+    Decription: string;
+    ClassType: number;
+    OwnerID: number;
+    OwnerName: string;
 }
