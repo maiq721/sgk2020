@@ -5,17 +5,18 @@ import { GridLessonItemComponent } from './grid-lesson-item/grid-lesson-item.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserPanelComponent } from '../user-panel/user-panel.component';
 import { DxListModule, DxContextMenuModule } from 'devextreme-angular';
+import { LessonOverviewComponent } from './lesson-overview/lesson-overview.component';
 
 
 
 @NgModule({
-  declarations: [GridItemComponent, GridLessonItemComponent, UserPanelComponent],
+  declarations: [GridItemComponent, GridLessonItemComponent, UserPanelComponent, LessonOverviewComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,
     DxListModule,
     DxContextMenuModule
   ],
-  exports:[GridItemComponent,GridLessonItemComponent,UserPanelComponent]
+  exports:[GridItemComponent,GridLessonItemComponent,UserPanelComponent, LessonOverviewComponent]
 })
 export class ShareComponentModule { }
