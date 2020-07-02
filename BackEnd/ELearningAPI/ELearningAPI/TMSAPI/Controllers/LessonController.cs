@@ -34,6 +34,23 @@ namespace TMSAPI.Controllers
                 throw;
             }
             return res;
+        }   
+        
+        [HttpGet]
+        [Route("getBySubjectID/{subjectID}")]
+        public async Task<ServiceResult> GetBySubjectID(int subjectID)
+        {
+            var res = new ServiceResult();
+            try
+            {
+                res.Data = (this.BL as ILessonBL).GetBySubjectID(subjectID);
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                throw;
+            }
+            return res;
         }
     }
 }

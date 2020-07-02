@@ -6,4 +6,5 @@
     </div>
     <div class="mt-3 text-center medium">Đếm vịt</div>
 </div>
-<app-lesson-overview *ngIf="visible"></app-lesson-overview>
+<app-popup-view-lesson *ngIf="visible" [visible]="visible"
+    (afterClose)="visible = false"></app-popup-view-lesson>

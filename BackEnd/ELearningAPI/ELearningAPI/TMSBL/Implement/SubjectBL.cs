@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,13 @@ namespace TMSBL
             res.Data = DL.Query("Proc_Subject_GetAll");
             return res;
         }
+        public object GetClassSubjectByUserAndProgram(int programID, int userID)
+        {
+            var dic = new Dictionary<string, object>() { { "UserID", userID }, { "ProgramID", programID } };
+            var p = Utils.ConvertDatabaseParam(dic);
+            var res = DL.Query("Proc_GetClassSubjectByUserAndProgram", System.Data.CommandType.StoredProcedure, p).Result;
+            return res;
+        }
+
     }
 }

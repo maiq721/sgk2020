@@ -14,6 +14,7 @@ import { ShareComponentModule } from 'src/app/shared/components/share-component/
     SubjectRoutingModule,
     FontAwesomeModule,
     ShareComponentModule
-  ]
+  ],
+  exports:[SubjectDetailComponent]
 })
 export class SubjectModule { }

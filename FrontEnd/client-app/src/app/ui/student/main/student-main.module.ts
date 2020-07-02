@@ -14,6 +14,7 @@ import { ShareComponentModule } from 'src/app/shared/components/share-component/
     StudentMainRoutingModule,
     AngularResizedEventModule,
     ShareComponentModule
-  ]
+  ],
+  exports:[StudentMainComponent]
 })
 export class StudentMainModule { }

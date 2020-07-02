@@ -23,6 +23,6 @@ export class StudentMainComponent implements OnInit {
   }
 
   clickItem(e){
-    this.route.navigate(['client/subject/1']);
+    this.route.navigate(['/elearning/client/subject/1']);
   }
 }

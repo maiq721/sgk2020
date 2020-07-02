@@ -12,6 +12,7 @@ import { ShareComponentModule } from 'src/app/shared/components/share-component/
     CommonModule,
     MytaskRoutingModule,
     ShareComponentModule
-  ]
+  ],
+  exports:[MytaskComponent]
 })
 export class MytaskModule { }

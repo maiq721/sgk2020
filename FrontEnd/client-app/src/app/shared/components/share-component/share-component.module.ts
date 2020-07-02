@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserPanelComponent } from '../user-panel/user-panel.component';
 import { DxListModule, DxContextMenuModule } from 'devextreme-angular';
 import { LessonOverviewComponent } from './lesson-overview/lesson-overview.component';
+import { PopupModule } from 'src/app/popup/popup.module';
 
 
 
@@ -15,7 +16,8 @@ import { LessonOverviewComponent } from './lesson-overview/lesson-overview.compo
     CommonModule,
     FontAwesomeModule,
     DxListModule,
-    DxContextMenuModule
+    DxContextMenuModule,
+    PopupModule
   ],
   exports:[GridItemComponent,GridLessonItemComponent,UserPanelComponent, LessonOverviewComponent]
 })

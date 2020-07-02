@@ -61,7 +61,7 @@ export class NavBarComponent implements OnInit {
 
   navigate(link) {
     if (!link) {
-      this.route.navigate(['/client/main']);
+      this.route.navigate(['/elearning/client/main']);
     } else {
       this.route.navigate([link]);
     }
