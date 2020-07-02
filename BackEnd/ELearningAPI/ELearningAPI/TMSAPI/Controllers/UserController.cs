@@ -51,7 +51,7 @@ namespace TMSAPI.Controllers
                 return Ok(new
                 {
                     Token = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(userDB[0].UserID.ToString())),
-                    UserInfo = userDB
+                    UserInfo = userDB[0]
                 });
             }
             return Unauthorized();

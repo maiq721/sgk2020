@@ -5,7 +5,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 export class AuthService {
   loggedIn = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   logIn(login: string, passord: string) {
     this.loggedIn = true;
@@ -14,31 +14,37 @@ export class AuthService {
 
   logOut() {
     this.loggedIn = false;
-    this.router.navigate(['/login-form']);
+    localStorage.removeItem('Token');
+    localStorage.removeItem('UserInfo');
+    this.router.navigate(['/login']);
   }
 
   get isLoggedIn() {
     return this.loggedIn;
   }
+  getUserInfo() {
+    const userstr = localStorage.getItem("UserInfo");
+    return JSON.parse(userstr);
+  }
 }
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-    constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
-    canActivate(route: ActivatedRouteSnapshot): boolean {
-        const isLoggedIn = this.authService.isLoggedIn;
-        const isLoginForm = route.routeConfig.path === 'login-form';
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    const isLoggedIn = this.authService.isLoggedIn;
+    const isLoginForm = route.routeConfig.path === 'login-form';
 
-        if (isLoggedIn && isLoginForm) {
-            this.router.navigate(['/']);
-            return false;
-        }
-
-        if (!isLoggedIn && !isLoginForm) {
-            this.router.navigate(['/login-form']);
-        }
-
-        return isLoggedIn || isLoginForm;
+    if (isLoggedIn && isLoginForm) {
+      this.router.navigate(['/']);
+      return false;
     }
+
+    if (!isLoggedIn && !isLoginForm) {
+      this.router.navigate(['/login-form']);
+    }
+
+    return isLoggedIn || isLoginForm;
+  }
 }

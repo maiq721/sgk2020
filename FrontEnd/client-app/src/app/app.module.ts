@@ -12,12 +12,18 @@ import { ToolbarModule } from './ui/toolbar/toolbar.module';
 import { SingleCardModule } from './layouts';
 // Import the library module
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/services/token-interceptor.service';
+import { APP_BASE_HREF } from '@angular/common';
+import { EmptyRouteComponent } from './empty-route/empty-route.component';
+import { ManagementComponent } from './ui/management/management.component';
+import { ManagementModule } from './ui/management/management.module';
+import { LoginModule } from './ui/login/login.module';
 @NgModule({
   declarations: [
     AppComponent,
+    EmptyRouteComponent
   ],
   imports: [
     BrowserModule,
@@ -28,17 +34,19 @@ import { AuthInterceptor } from './shared/services/token-interceptor.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     DirectiveModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ManagementModule,
+    LoginModule
   ],
   providers: [AuthService, ScreenService, AppInfoService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  },{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle);
+    library.addIcons(faSquare, faCheckSquare, faArrowLeft, faChevronCircleLeft, faChalkboard, faCheckCircle, faEdit, faTrashAlt);
   }
 }

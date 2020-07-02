@@ -3,15 +3,14 @@ import { Subject } from 'rxjs';
 
 export class BaseComponent implements OnInit, OnDestroy {
   // tslint:disable-next-line:variable-name
-  public unSub: Subject<void> = new Subject<void>();
-
+  public _onDestroySub: Subject<void> = new Subject<void>();
   constructor() { }
 
   ngOnInit() {
   }
   ngOnDestroy(): void {
-    this.unSub.next();
-    this.unSub.complete();
-    this.unSub.unsubscribe();
+    this._onDestroySub.next();
+    this._onDestroySub.complete();
+    this._onDestroySub.unsubscribe();
   }
 }

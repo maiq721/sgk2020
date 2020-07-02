@@ -1,0 +1,12 @@
+<dx-popup [width]="'100vw'" [height]="'100vh'" [showTitle]="true" title="Đếm vịt" [dragEnabled]="false"
+ [(visible)]="visible" (onHidden)="closePopup()">
+  <div class="d-flex flex-column justify-content-between" *dxTemplate="let data of 'content'">
+    <div class="">
+        <div class="uchiru_bg_color"></div>
+        <div class="uchiru_bg_stuff"></div>
+        <div class="uchiru_bg_color"
+            id="background-mix">
+        </div>
+    </div>
+  </div>
+</dx-popup>

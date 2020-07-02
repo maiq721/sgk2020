@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
 
 import { ManagementRoutingModule } from './management-routing.module';
 import { ManagementComponent } from './management.component';
 import { ToolbarModule } from '../toolbar/toolbar.module';
+import { StudentModule } from '../student/student.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
   imports: [
     CommonModule,
     ManagementRoutingModule,
-    ToolbarModule
-  ]
+    ToolbarModule,
+    StudentModule
+  ],
 })
 export class ManagementModule { }

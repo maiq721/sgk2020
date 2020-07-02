@@ -17,7 +17,7 @@ export class SubjectDetailComponent implements OnInit {
     if (window.history.length > 1) {
       this.location.back()
     } else {
-      this.router.navigate(['/client/main'])
+      this.router.navigate(['/elearning/client/main'])
     }
   }
 }

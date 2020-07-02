@@ -35,5 +35,21 @@ namespace TMSAPI.Controllers
             }
             return res;
         }
+        [HttpGet]
+        [Route("getByUserID/{programID}/{userID}")]
+        public async Task<ServiceResult> GetClassSubjectByUserAndProgram(int programID, int userID)
+        {
+            var res = new ServiceResult();
+            try
+            {
+                res.Data = (this.BL as ISubjectBL).GetClassSubjectByUserAndProgram( programID,  userID);
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                throw;
+            }
+            return res;
+        }
     }
 }

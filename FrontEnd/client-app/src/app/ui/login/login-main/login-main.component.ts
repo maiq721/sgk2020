@@ -21,7 +21,7 @@ export class LoginMainComponent extends BaseComponent implements OnInit {
   }
 
   signUp() {
-    this.route.navigate(['/login/signup']);
+    this.route.navigate(['/elearning/login/signup']);
   }
 
   login() {
@@ -31,9 +31,9 @@ export class LoginMainComponent extends BaseComponent implements OnInit {
     this.userSV.login(user).subscribe(res => {
       if (res && res.Token) {
         localStorage.setItem('Token', res.Token);
-        localStorage.setItem('UserInfo', res.UserInfo);
+        localStorage.setItem('UserInfo', JSON.stringify(res.UserInfo));
 
-        this.route.navigate(['/client/main']);
+        this.route.navigate(['/elearning/client/main']);
       }
     });
 

@@ -16,5 +16,12 @@ namespace TMSBL
             res.Data = DL.Query(query, System.Data.CommandType.Text);
             return res;
         }
+        
+        public object GetBySubjectID(int subjectID)
+        {
+            var query = $"SELECT l.*, s.SubjectName,s.ClassID FROM lesson l JOIN topic t ON l.TopicID = t.ID JOIN subject s ON t.SubjectID = s.ID WHERE t.SubjectID = {subjectID}";
+            var res = DL.Query(query, System.Data.CommandType.Text).Result;
+            return res;
+        }
     }
 }

@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GridLessonItemComponent implements OnInit {
 
+  visible = false;
   @Input() lessonItem: any;
-  
+
   constructor() { }
 
   ngOnInit() {
