@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   }
 
   signIn() {
-    this.route.navigate(['/login']);
+    this.route.navigate(['elearning/login']);
   }
 
   registerAccount(type){

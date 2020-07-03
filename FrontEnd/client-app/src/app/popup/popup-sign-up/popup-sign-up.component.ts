@@ -17,7 +17,7 @@ export class PopupSignUpComponent extends BasePopupComponent implements OnInit {
 
   emailConfig = "";
 
-  listProgram =[{ProgramID:1,ProgramName:"Tiểu học"}, {ProgramID:2,ProgramName:"Trung học cơ sở"}, {ProgramID:3,ProgramName:"Trung học phổ thông"}];
+  listProgram = [{ ProgramID: 1, ProgramName: "Tiểu học" }, { ProgramID: 2, ProgramName: "Trung học cơ sở" }, { ProgramID: 3, ProgramName: "Trung học phổ thông" }];
 
   constructor() { super(); }
 
@@ -29,7 +29,9 @@ export class PopupSignUpComponent extends BasePopupComponent implements OnInit {
   }
 
   submitSignUp() {
-    
-    this.emailConfig = `mailto:vietcuong.uet@gmail.com?subject=[Xác thực tài khoản E-Learning]&body=Kính gửi Quản trị viên hệ thống học trực tuyến, Tôi là ${this.currentUser.FullName}, là giáo viên mong muốn giảng dạy trên hệ thống học trực tuyến. Tôi đã đăng ký tài khoản giáo viên trên hệ thống, kính nhờ Quản trị viên phê duyệt. Trân trọng cảm ơn!`
+    this.emailConfig = `mailto:vietcuong.uet@gmail.com?subject=[Xác thực tài khoản E-Learning]&body=Kính gửi Quản trị viên hệ thống học trực tuyến, Tôi là ${this.currentUser.FullName}, là giáo viên mong muốn giảng dạy trên hệ thống học trực tuyến. Tôi đã đăng ký tài khoản giáo viên trên hệ thống, kính nhờ Quản trị viên phê duyệt. Trân trọng cảm ơn!`;
+
+
+
   }
 }

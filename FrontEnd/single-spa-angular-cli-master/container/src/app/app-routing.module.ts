@@ -23,7 +23,8 @@ const routes: Routes = [{
     path: '**',
     loadChildren: () => import('./spa-host/spa-host.module').then(m => m.SpaHostModule),
     data: { app: 'elearning' }
-  }]
+  }
+  ]
 }];
 
 @NgModule({

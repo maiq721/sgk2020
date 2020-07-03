@@ -9,14 +9,14 @@ export class AuthService {
 
   logIn(login: string, passord: string) {
     this.loggedIn = true;
-    this.router.navigate(['/']);
+    this.router.navigate(['elearning/client']);
   }
 
   logOut() {
     this.loggedIn = false;
     localStorage.removeItem('Token');
     localStorage.removeItem('UserInfo');
-    this.router.navigate(['/login']);
+    this.router.navigate(['elearning/login']);
   }
 
   get isLoggedIn() {
