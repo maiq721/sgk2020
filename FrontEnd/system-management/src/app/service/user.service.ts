@@ -8,6 +8,7 @@ import { ServiceResult } from '../model/service-respon';
 })
 export class UserService {
 
+  public API_URL = 'http://localhost:57999/api/user';
   constructor(
     private http: HttpClient
     
@@ -31,5 +32,9 @@ export class UserService {
   lockUser(id, status): Observable<ServiceResult>{
     const uri = `http://localhost:57999/api/user/lockUser/${id}/${status}`;
     return this.http.get<ServiceResult>(uri);
+  }
+
+  login(user): Observable<any> {
+    return this.http.post<any>(`${this.API_URL}/login`, user);
   }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using System.Web.Http.Cors;
 using System.Web.Http.Routing;
 using TMSBL;
 using Unity;
@@ -15,7 +16,8 @@ namespace TMSAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.EnableCors();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             config.Filters.Add(new BasicAuthenticationAttribute());
             // unity for denpendency injection
             var container = new UnityContainer();

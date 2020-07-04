@@ -19,11 +19,6 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ]
   },
   {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [ AuthGuardService ]
-  },
-  {
     path: "",
     loadChildren: () => import('./ui/management/management.module').then(m => m.ManagementModule)
   },
@@ -52,12 +47,10 @@ const routes: Routes = [
     component: LessonComponent,
     canActivate: [ AuthGuardService ]
   },
-  // ,
-  // {
-  //   path: '**',
-  //   redirectTo: 'home',
-  //   canActivate: [ AuthGuardService ]
-  // }
+    {
+    path: '**',
+    redirectTo: 'login-form'
+  }
 ];
 
 @NgModule({

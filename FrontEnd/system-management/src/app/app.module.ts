@@ -21,7 +21,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { DisplayDataComponent } from './pages/display-data/display-data.component';
 import { DxDataGridModule, DxFormModule, DxPopupModule, DxTextBoxModule, DxSelectBoxModule, DxTextAreaModule } from 'devextreme-angular';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './service/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     DirectiveModule, DxDataGridModule, DxFormModule, DxPopupModule, DxTextBoxModule, DxSelectBoxModule, DxTextAreaModule
   ],
-  providers: [AuthService, ScreenService, AppInfoService],
+  providers: [AuthService, ScreenService, AppInfoService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

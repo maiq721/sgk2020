@@ -1,6 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 import { AuthService, AppInfoService } from '../../services';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
@@ -8,6 +8,7 @@ import { DxCheckBoxModule } from 'devextreme-angular/ui/check-box';
 import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { DxValidationGroupModule } from 'devextreme-angular/ui/validation-group';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -15,19 +16,34 @@ import { DxValidationGroupModule } from 'devextreme-angular/ui/validation-group'
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent {
-  login = '';
-  password = '';
+  uUsername: string;
+  uPassword: string;
 
-  constructor(private authService: AuthService, public appInfo: AppInfoService) { }
+  constructor(private route: Router, public appInfo: AppInfoService, private userSV: UserService) { }
 
   onLoginClick(args) {
     if (!args.validationGroup.validate().isValid) {
       return;
     }
 
-    this.authService.logIn(this.login, this.password);
+    //this.authService.logIn(this.login, this.password);
 
     args.validationGroup.reset();
+  }
+
+  login() {
+
+    const user = {UserName: this.uUsername, Password: this.uPassword};
+
+    this.userSV.login(user).subscribe(res => {
+      if (res && res.Token) {
+        localStorage.setItem('Token', res.Token);
+        localStorage.setItem('UserInfo', JSON.stringify(res.UserInfo));
+
+        this.route.navigate(['/home']);
+      }
+    });
+
   }
 }
 @NgModule({

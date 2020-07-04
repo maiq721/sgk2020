@@ -14,11 +14,17 @@ export class AuthService {
 
   logOut() {
     this.loggedIn = false;
+    localStorage.removeItem('Token');
+    localStorage.removeItem('UserInfo');
     this.router.navigate(['/login-form']);
   }
 
   get isLoggedIn() {
     return this.loggedIn;
+  }
+  getUserInfo() {
+    const userstr = localStorage.getItem("UserInfo");
+    return JSON.parse(userstr);
   }
 }
 

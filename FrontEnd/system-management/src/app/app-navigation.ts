@@ -9,11 +9,6 @@ export const navigation = [
     icon: 'folder',
     items: [
       {
-        text: 'Profile',
-        path: '/profile',
-        icon: 'contains'
-      },
-      {
         text: 'Người dùng',
         path: '/user',
         icon: 'user'
