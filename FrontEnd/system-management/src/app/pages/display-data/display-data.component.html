@@ -41,13 +41,13 @@
                 (click)="showPopupEdit(action.data)">
                 Sửa
             </div>
-            <div class="btn btn-danger" style="cursor: pointer;margin-right: 8px;" (click)="showPopupDelete(action.data)">
+            <div class="btn btn-danger" *ngIf="this.userLogin.UserID !== action.data.UserID"  style="cursor: pointer;margin-right: 8px;" (click)="showPopupDelete(action.data)">
                 Xóa
             </div>
-            <div class="btn btn-warning" style="cursor: pointer;" (click)="lockUser(action.data, 4)" *ngIf="action.data.Status == 1">
+            <div class="btn btn-warning"  style="cursor: pointer;" (click)="lockUser(action.data, 4)" *ngIf="action.data.Status == 1 && this.userLogin.UserID !== action.data.UserID">
                 Khóa
             </div>
-            <div class="btn btn-success" style="cursor: pointer;" (click)="lockUser(action.data, 1)" *ngIf="action.data.Status == 4">
+            <div class="btn btn-success" style="cursor: pointer;" (click)="lockUser(action.data, 1)" *ngIf="action.data.Status == 4 && this.userLogin.UserID !== action.data.UserID">
                 Kích hoạt
             </div>
         </div>

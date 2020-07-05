@@ -2,6 +2,7 @@ import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import 'devextreme/data/odata/store';
 import { User } from 'src/app/model/user';
+import { AuthService } from 'src/app/shared/services';
 
 @Component({
   templateUrl: 'display-data.component.html'
@@ -14,6 +15,8 @@ export class DisplayDataComponent implements OnInit{
   user: any;
   formMode = 1;
   popupDeleteVisible: boolean = false;
+
+  userLogin: any;
 
   listRole = [
     {
@@ -29,7 +32,8 @@ export class DisplayDataComponent implements OnInit{
 
 
   constructor(
-    private userSv: UserService
+    private userSv: UserService,
+    private authService: AuthService
   ) {
     
   }
@@ -38,6 +42,7 @@ export class DisplayDataComponent implements OnInit{
     this.dataSource = [
       
     ];
+    this.userLogin = this.authService.getUserInfo();
     this.loadData();
   }
 
