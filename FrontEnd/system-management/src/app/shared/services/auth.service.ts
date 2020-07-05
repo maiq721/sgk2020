@@ -30,18 +30,22 @@ export class AuthService {
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-    constructor(private router: Router, private authService: AuthService) {}
+  user : any;
+    constructor(private router: Router, private authService: AuthService) {
+      this.user = this.authService.getUserInfo();
+    }
 
     canActivate(route: ActivatedRouteSnapshot): boolean {
         const isLoggedIn = this.authService.isLoggedIn;
         const isLoginForm = route.routeConfig.path === 'login-form';
 
-        if (isLoggedIn && isLoginForm) {
+        if (isLoggedIn && isLoginForm && this.user && this.user.RoleCode === "Admin") {
             this.router.navigate(['/']);
             return false;
         }
 
-        if (!isLoggedIn && !isLoginForm) {
+        if (!isLoggedIn && !isLoginForm && (!this.user || this.user.RoleCode !== "Admin" ) ) {
+            this.authService.logOut();
             this.router.navigate(['/login-form']);
         }
 

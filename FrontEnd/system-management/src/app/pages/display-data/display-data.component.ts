@@ -15,6 +15,18 @@ export class DisplayDataComponent implements OnInit{
   formMode = 1;
   popupDeleteVisible: boolean = false;
 
+  listRole = [
+    {
+      RoleName: "Quản trị hệ thống",
+      RoleCode: "Admin",    },
+      {
+        RoleName: "Giáo viên",
+        RoleCode: "Teacher",    },
+        {
+          RoleName: "Học sinh",
+          RoleCode: "Student",    }
+  ];
+
 
   constructor(
     private userSv: UserService
@@ -32,8 +44,7 @@ export class DisplayDataComponent implements OnInit{
   loadData(){
     this.userSv.getAllData().subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.dataSource = dataRes["Result"];
+        this.dataSource = res.Data;
       }
     });
   }
@@ -77,5 +88,10 @@ export class DisplayDataComponent implements OnInit{
 
   deleteData(){
     this.popupDeleteVisible = false;
+    this.userSv.delete(this.user.UserID).subscribe(res => {
+      if(res && res.Success){
+        this.loadData();
+      }
+    });
   }
 }

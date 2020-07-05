@@ -14,7 +14,6 @@ using TMSBO.Model;
 
 namespace TMSAPI.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/user")]
     [AllowAnonymous]
     public class UserController : BaseController
@@ -118,6 +117,23 @@ namespace TMSAPI.Controllers
             try
             {
                 res = (this.BL as IUserBL).GetAllData();
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                throw;
+            }
+            return res;
+        }
+
+        [HttpGet]
+        [Route("delete/{id}")]
+        public async Task<ServiceResult> Delete(int id)
+        {
+            var res = new ServiceResult();
+            try
+            {
+                res.Success = (this.BL as IUserBL).Delete(id);
             }
             catch (Exception ex)
             {

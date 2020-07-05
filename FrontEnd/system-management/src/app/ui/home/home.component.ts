@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import notify from "devextreme/ui/notify";
+import { PercentPipe } from '@angular/common';
+import { UserService } from 'src/app/service/user.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-home',
@@ -7,27 +10,62 @@ import notify from "devextreme/ui/notify";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  visiblePopupAddTask: boolean;
-    /**
-   * Danh sách màu từng cột của chart
-   */
-  colorSeries = ["#d1d8e0", "#45aaf2", "#a55eea", "#fd9643", "#26de81"];
-  constructor(private el: ElementRef) { }
+
+  listUser = [
+    {
+      User: "Giáo viên",
+      Type: 1,
+      val: 0
+    },
+    {
+      User: "Học sinh",
+      Type: 2,
+      val: 0,
+    },
+    {
+      User: "Quản trị hệ thống",
+      Type: 3,
+      val: 0,
+    }
+  ];
+
+  listData: any;
+
+
+
+  pipe: any = new PercentPipe("en-US");
+  constructor(private el: ElementRef,
+    private userService: UserService
+    
+    ) { 
+      
+    }
 
   ngOnInit() {
-    this.visiblePopupAddTask = false;
-    this.initFunnel();
-  }
-  show() {
-    // notify("Chức năng đang thi công!", "success", 600);
-    this.visiblePopupAddTask = true;
-  }
+    this.userService.getAllData().subscribe(res => {
+      if(res && res.Success){
+        this.listData = res.Data;
+        this.listData.forEach(element => {
+          if(element.RoleCode === "Teacher"){
+            this.listUser[0].val++;
+          }
+          if(element.RoleCode === "Admin"){
+            this.listUser[1].val++;
+          }
+          if(element.RoleCode === "Student"){
+            this.listUser[2].val++;
+          }
+        });
+        this.listUser = _.cloneDeep(this.listUser);
+      }
+    });
 
-  // ----------- biểu đồ ------------
-  initFunnel() {
+  }
+  
+  customizeTooltip = (arg: any) => {
+    return {
+        text: arg.valueText + " - " + this.pipe.transform(arg.percent, "1.2-2")
+    };
+}
 
-  }
-  fnRenderTooltip(data) {
-    return `<span>hi!</span>`;
-  }
 }

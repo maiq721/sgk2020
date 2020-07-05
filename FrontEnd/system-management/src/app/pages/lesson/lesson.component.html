@@ -13,9 +13,12 @@
     <dxo-filter-row [visible]="true"></dxo-filter-row>
     <dxi-column dataField="LessonName" caption="Tên bài học" [width]="300" [hidingPriority]="2">
     </dxi-column>
-    <dxi-column dataField="TopicName" caption="Tên chủ đề" [width]="200" [hidingPriority]="2">
+    <dxi-column dataField="TopicName" caption="Chủ đề" [width]="200" [hidingPriority]="2">
     </dxi-column>
-    
+    <dxi-column dataField="ProgramName" caption="Chương trình" [width]="200" [hidingPriority]="2">
+    </dxi-column>
+    <dxi-column dataField="LinkURL" caption="Đường dẫn bài tập" [width]="200" [hidingPriority]="2">
+    </dxi-column>
     
     <dxi-column dataField="Action" caption=" " cellTemplate="ActionTemplate" [hidingPriority]="4">
         <div *dxTemplate="let action of 'ActionTemplate'" class="dis-flex">
@@ -41,10 +44,23 @@
             </div>
             <div class="m-row">
                 <div class="medium labelinput">
-                    Tên môn học:
+                    Môn học:
                 </div>
                 <dx-select-box [(value)]="lesson.TopicID" [dataSource]="listTopic" valueExpr="ID"
                     displayExpr="TopicName" searchEnabled="true" searchExpr="TopicName"></dx-select-box>
+            </div>
+            <div class="m-row">
+                <div class="medium labelinput">
+                    Chương trình:
+                </div>
+                <dx-select-box [(value)]="lesson.ProgramID" [dataSource]="listProgram" valueExpr="ID"
+                    displayExpr="ProgramName"></dx-select-box>
+            </div>
+            <div class="m-row">
+                <div class="medium labelinput">
+                    Mô tả:
+                </div>
+                <dx-text-area [(value)]="lesson.Desciption" ></dx-text-area>
             </div>
         </div>
         <div class="popup-footer dis-flex" style="float: right;">

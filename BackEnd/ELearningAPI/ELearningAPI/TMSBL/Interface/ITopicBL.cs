@@ -10,5 +10,6 @@ namespace TMSBL
     public interface ITopicBL: IBaseBL
     {
         ServiceResult GetAllData();
+        bool Delete(int id);
     }
 }

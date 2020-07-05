@@ -1,10 +1,23 @@
-<button class="btn btn-primary m-3" appUnderConstruction (click)="show()">home works!</button>
-
-<app-popup-add-task *ngIf="visiblePopupAddTask" [visible]="visiblePopupAddTask"
-  (closePopup)="visiblePopupAddTask=false"></app-popup-add-task>
-
-<h1>
-  Highchart funnel :)
-</h1>
-<vig-funnel-chart #chart [colorSeries]="colorSeries" yField="Amount" xField="Text" [fnRenderTooltip]="fnRenderTooltip">
-</vig-funnel-chart>
+<dx-pie-chart
+    id="pie"
+    type="doughnut"
+    title="Tương quan người dùng"
+    palette="Soft Pastel"
+    [(dataSource)]="listUser">
+    <dxi-series
+        argumentField="User">
+        <dxo-label
+            [visible]="true">
+            <dxo-connector [visible]="true"></dxo-connector>
+        </dxo-label>
+    </dxi-series>
+    <dxo-export [enabled]="true"></dxo-export>
+    <dxo-legend
+        [margin]="0"
+        horizontalAlignment="right"
+        verticalAlignment="top"></dxo-legend>
+    <dxo-tooltip
+        [enabled]="true"
+        [(customizeTooltip)]="customizeTooltip">
+    </dxo-tooltip>
+</dx-pie-chart>

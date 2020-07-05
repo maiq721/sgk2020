@@ -22,10 +22,9 @@ export class HeaderComponent {
   @Input()
   title: string;
 
-  userMenuItems = [{
-    text: 'Trang cá nhân',
-    icon: 'user'
-  }, {
+  name ="admin";
+
+  userMenuItems = [ {
     text: 'Đăng xuất',
     icon: 'runner',
     onClick: () => {
@@ -34,6 +33,14 @@ export class HeaderComponent {
   }];
 
   constructor(private authService: AuthService) { }
+  ngOnInit() {
+
+    const user = this.authService.getUserInfo();
+    if(user){
+      this.name = user.FullName ? user.FullName : "undefined";
+    }
+    
+  }
 
   toggleMenu = () => {
     this.menuToggle.emit();

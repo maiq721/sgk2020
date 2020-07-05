@@ -19,7 +19,8 @@ export class LoginFormComponent {
   uUsername: string;
   uPassword: string;
 
-  constructor(private route: Router, public appInfo: AppInfoService, private userSV: UserService) { }
+  constructor(private route: Router, public appInfo: AppInfoService, private userSV: UserService,
+    private authService: AuthService) { }
 
   onLoginClick(args) {
     if (!args.validationGroup.validate().isValid) {
@@ -41,6 +42,7 @@ export class LoginFormComponent {
         localStorage.setItem('UserInfo', JSON.stringify(res.UserInfo));
 
         this.route.navigate(['/home']);
+        this.authService.logIn(this.uUsername, this.uPassword);
       }
     });
 

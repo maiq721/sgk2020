@@ -13,5 +13,6 @@ namespace TMSBL
 
         // lấy dữ liệu môn học và lớp học của môn theo chương trình
         object GetClassSubjectByUserAndProgram(int programID, int userID);
+        bool Delete(int id);
     }
 }

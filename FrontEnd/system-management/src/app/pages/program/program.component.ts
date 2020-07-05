@@ -33,8 +33,7 @@ export class ProgramComponent implements OnInit, OnDestroy {
   loadData(){
     this.programSV.getallData().pipe(takeUntil(this.unSubscribe)).subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.dataSource = dataRes["Result"];
+        this.dataSource = res.Data;
       }
     });
   }

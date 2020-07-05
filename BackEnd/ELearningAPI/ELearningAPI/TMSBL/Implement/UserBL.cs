@@ -20,8 +20,14 @@ namespace TMSBL
         public ServiceResult GetAllData()
         {
             ServiceResult res = new ServiceResult();
-            res.Data = DL.Query("Proc_User_getAll");
+            res.Data = DL.Query<User>("Proc_User_getAll").Result;
             return res;
+        }
+
+        public bool Delete(int id)
+        {
+            var query = $"Delete from user where UserID = {id}";
+            return DL.Execute(query, CommandType.Text).Result;
         }
     }
 }

@@ -24,8 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'login-form',
-    component: LoginFormComponent,
-    canActivate: [ AuthGuardService ]
+    component: LoginFormComponent
   },{
     path: 'program',
     component: ProgramComponent,
@@ -46,10 +45,6 @@ const routes: Routes = [
     path: 'lesson',
     component: LessonComponent,
     canActivate: [ AuthGuardService ]
-  },
-    {
-    path: '**',
-    redirectTo: 'login-form'
   }
 ];
 

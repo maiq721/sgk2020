@@ -26,7 +26,7 @@ export class UserService {
 
   delete(id) : Observable<ServiceResult>{
     const uri = `http://localhost:57999/api/user/delete/${id}`;
-    return this.http.delete<ServiceResult>(uri);
+    return this.http.get<ServiceResult>(uri);
   }
 
   lockUser(id, status): Observable<ServiceResult>{

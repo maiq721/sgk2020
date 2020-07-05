@@ -11,5 +11,6 @@ namespace TMSBL
     {
         ServiceResult GetAllData();
         object GetBySubjectID(int subjectID);
+        bool Delete(int id);
     }
 }

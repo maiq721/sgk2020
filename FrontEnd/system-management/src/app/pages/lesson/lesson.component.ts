@@ -3,6 +3,7 @@ import { TopicService } from './../../service/topic.service';
 import { Lesson } from './../../model/lesson';
 import { Component, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
+import { ProgramService } from 'src/app/service/program.service';
 
 @Component({
   selector: 'app-lesson',
@@ -18,9 +19,15 @@ export class LessonComponent implements OnInit {
   formMode = 1;
   popupDeleteVisible: boolean = false;
   listTopic :any;
+  listProgram :any;
+
+  listImageLineLesson=["/assets/image/teacher-f8a276794127655b137d04b03550d2c5.svg",
+  "/assets/image/teacher-f8a276794127655b137d04b03550d2c5.svg"
+  ];
   constructor(
     private topicsv: TopicService,
-    private lessonSv: LessonService
+    private lessonSv: LessonService,
+    private programSV: ProgramService
   ) { }
 
   ngOnInit() {
@@ -31,8 +38,7 @@ export class LessonComponent implements OnInit {
   loadData(){
     this.lessonSv.getAllData().subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.dataSource = dataRes["Result"];
+        this.dataSource = res.Data;
       }
     });
   }
@@ -40,8 +46,15 @@ export class LessonComponent implements OnInit {
   loadListTopic(){
     this.topicsv.getAllData().subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.listTopic = dataRes["Result"];
+        this.listTopic = res.Data;
+      }
+    });
+  }
+
+  loadProgram(){
+    this.programSV.getallData().subscribe(res => {
+      if(res && res.Success){
+        this.listProgram = res.Data;
       }
     });
   }
@@ -65,6 +78,10 @@ export class LessonComponent implements OnInit {
   }
 
   saveData(){
+    if(this.formMode === 1){
+      this.lesson = Math.floor(Math.random() * 2);
+    }
+    this.lesson.ProgramName = this.listProgram.filter(x => x.ProgramID === this.lesson.ProgramID)[0].ProgramName;
     if(this.lesson.LessonName.trim()){
       this.popupVisible = false;
       this.lesson.State = this.formMode == 1 ? 1 : 2;

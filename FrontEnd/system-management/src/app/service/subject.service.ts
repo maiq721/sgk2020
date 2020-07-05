@@ -24,6 +24,6 @@ export class SubjectService {
 
   delete(id) : Observable<ServiceResult>{
     const uri = `http://localhost:57999/api/subject/delete/${id}`;
-    return this.http.delete<ServiceResult>(uri);
+    return this.http.get<ServiceResult>(uri);
   }
 }

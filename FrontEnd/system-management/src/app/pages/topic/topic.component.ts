@@ -29,8 +29,7 @@ export class TopicComponent implements OnInit {
   loadData(){
     this.topicSv.getAllData().subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.dataSource = dataRes["Result"];
+        this.dataSource = res.Data;
       }
     });
   }
@@ -38,8 +37,7 @@ export class TopicComponent implements OnInit {
   loadSubjectList(){
     this.subjectSV.getAllData().subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.listSubject = dataRes["Result"];
+        this.listSubject = res.Data;
       }
     });
   }

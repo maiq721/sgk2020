@@ -12,5 +12,6 @@ namespace TMSBL
         bool LockUser(int userid, int status);
 
         ServiceResult GetAllData();
+        bool Delete(int id);
     }
 }

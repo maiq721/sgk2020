@@ -41,8 +41,7 @@ export class ClassComponent implements OnInit, OnDestroy {
   loadData(){
     this.classSV.getClass().pipe(takeUntil(this.unSubscribe)).subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.dataSource = dataRes["Result"];
+        this.dataSource = res.Data;
       }
     });
   }
@@ -50,8 +49,7 @@ export class ClassComponent implements OnInit, OnDestroy {
   loadProgram(){
     this.programSV.getallData().pipe(takeUntil(this.unSubscribe)).subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.listProgram = dataRes["Result"];
+        this.listProgram = res.Data;
       }
     });
   }

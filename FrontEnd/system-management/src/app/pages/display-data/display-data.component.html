@@ -59,7 +59,7 @@
         <div class="popup-container">
             <div class="m-row">
                 <div class="medium labelinput">
-                    UserName:
+                    Tên đăng nhập:
                 </div>
                 <dx-text-box [(value)]="user.UserName"></dx-text-box>
             </div>
@@ -85,7 +85,10 @@
                 <div class="medium labelinput">
                     Vai trò:
                 </div>
-                <dx-text-box [(value)]="user.RoleName"></dx-text-box>
+                <dx-select-box placeholder="Chọn vai trò" [dataSource]="listRole" [(value)]="user.RoleCode" valueExpr="RoleCode"
+                displayExpr="RoleName" searchEnabled="true" searchExpr="RoleName" [disabled]="formMode === 2">
+                    
+                </dx-select-box>
             </div>
         </div>
         <div class="popup-footer dis-flex" style="float: right;">

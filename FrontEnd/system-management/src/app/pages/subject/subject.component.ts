@@ -34,8 +34,7 @@ export class SubjectComponent implements OnInit {
   loadData(){
     this.subjectSV.getAllData().subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.dataSource = dataRes["Result"];
+        this.dataSource  = res.Data;
       }
     });
   }
@@ -43,8 +42,7 @@ export class SubjectComponent implements OnInit {
   loadClasslist(){
     this.classSV.getClass().subscribe(res => {
       if(res && res.Success){
-        const dataRes = res.Data;
-        this.listClass = dataRes["Result"];
+        this.listClass = res.Data;
       }
     });
   }
