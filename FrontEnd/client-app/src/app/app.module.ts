@@ -20,6 +20,7 @@ import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { ManagementComponent } from './ui/management/management.component';
 import { ManagementModule } from './ui/management/management.module';
 import { LoginModule } from './ui/login/login.module';
+import { DxToastModule } from 'devextreme-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { LoginModule } from './ui/login/login.module';
     DirectiveModule,
     FontAwesomeModule,
     ManagementModule,
-    LoginModule
+    LoginModule,
+    DxToastModule
   ],
   providers: [AuthService, ScreenService, AppInfoService, {
     provide: HTTP_INTERCEPTORS,

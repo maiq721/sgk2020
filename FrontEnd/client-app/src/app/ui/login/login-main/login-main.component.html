@@ -24,14 +24,14 @@
                         </div>
                         <div class="input_group">
                             <input autocomplete="off" id="password" name="password" placeholder="Mật khẩu" tabindex="2"
-                                type="password" [(ngModel)]="uPassword">
+                                type="password" [(ngModel)]="uPassword" (keyup.enter)="login()">
                         </div>
 
                         <div class="input_group input_group_submit">
                             <button type="button" class="btn btn-success w-100" (click)="login()">Đăng nhập</button>
                         </div>
-                        <div class="input_group forget_pass">
-                            <a class="text-white" href="/forget_password">Quên mật khẩu?</a>
+                        <div class="input_group forget_pass cursor-pointer" appUnderConstruction>
+                            <a class="text-white">Quên mật khẩu?</a>
                         </div>
                     </form>
                 </div>

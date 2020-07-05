@@ -8,6 +8,7 @@ import { UnderConstructionDirective } from './under-construction.directive';
   declarations: [UnderConstructionDirective],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[UnderConstructionDirective]
 })
 export class DirectiveModule { }

@@ -5,6 +5,7 @@ import { AuthService } from '../../services';
 import { UserPanelModule } from '../user-panel/user-panel.component';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
+import { TransferDataService } from 'src/app/service/common/transfer-data.service';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +25,10 @@ export class HeaderComponent {
 
   userMenuItems = [{
     text: 'Trang cá nhân',
-    icon: 'user'
+    icon: 'user',
+    onClick: () => {
+      this.transfer.showWarningToast("Chức năng đang thi công!");
+    }
   }, {
     text: 'Đăng xuất',
     icon: 'runner',
@@ -33,7 +37,7 @@ export class HeaderComponent {
     }
   }];
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private transfer: TransferDataService) { }
 
   toggleMenu = () => {
     this.menuToggle.emit();

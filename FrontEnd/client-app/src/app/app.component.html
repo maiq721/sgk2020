@@ -1,10 +1,20 @@
 <div class="w-100">
-    <!-- <app-nav-bar></app-nav-bar> -->
-    <div class="main-container">
-        <router-outlet></router-outlet>
-    </div>
+  <!-- <app-nav-bar></app-nav-bar> -->
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
 
 </div>
+
+<dx-toast [message]="toastResultMessage" [(visible)]="toastSuccessVisible" [displayTime]="1500" [type]="toastType"
+  [height]="'auto'" [minHeight]="55" [width]="'auto'" [position]="{
+    my: 'bottom right',
+    at: 'bottom right',
+    of: 'window',
+    offset: '-50 -50'
+  }">
+</dx-toast>
+
 
 <!-- <ng-template #notAuthorized>
     <app-single-card>

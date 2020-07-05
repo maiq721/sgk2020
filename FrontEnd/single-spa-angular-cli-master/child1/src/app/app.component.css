@@ -1,0 +1,29 @@
+div.uchiru_bg_color {
+    background-image: url('/assets/image/color-e875c1aeb80984feaea35e9206d56248ed77eb16feede64477bc68b08df59e29.png');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  div.uchiru_bg_stuff {
+    background-image: url('/assets/image/stuff-124d4f39a55f743d41ae005514723d90ae7e61faaf258f2187335151d10556b3.png');
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #background-mix {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-image: url('/assets/image/grad-f07e854ce64f9aee2db7bd67146ff0e4800feeed40c8f7116fcb3b6a048deb64.jpg');
+  }
+  

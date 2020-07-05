@@ -1,1 +1,73 @@
-<p>page2 works!</p>
+<div style="width: 700px; height: 500px; background-color: white; border-radius: 12px;">
+    <div class="kg-container kg-cell-28" style="margin-top: 16px;
+    width: 70%;
+    text-align: right;
+    font-size: 28px; float: left;">Ai có nhiều số hộp hơn?</div>
+    <div class="kg-container kg-cell-28" style="margin-top: 20px;
+    width: 20%;
+    text-align: right;
+    font-size: 20px; float: right; color: #2196f3; margin-right: 16px;">Màn 1/2</div>
+    <div class="kg-container kg-cell-28" style="margin-left: 70px;">
+        <div class="kg-row" style="margin-bottom: 23px;display: flex;">
+            <div class="kg-cell-12" style="text-align: left; display: flex;">
+                <div class="kg-cell-7">
+                    <div class="kid-0 mary"></div>
+                </div>
+                <div class="kg-cell-1"></div>
+                <div class="container-cubes kg-cell-4">
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 0px; left: 10px;"></div>
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 46px; left: 10px;"></div>
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 92px; left: 10px;"></div>
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 138px; left: 10px;"></div>
+                </div>
+            </div>
+            <div class="container-arrows kg-cell-2">
+                <div class="arrow success" style="bottom: 13px; display: none;"></div>
+                <div class="arrow success" style="bottom: 59px; display: none;"></div>
+                <div class="arrow success" style="bottom: 105px; display: none;"></div>
+                <div class="arrow wrong" style="bottom: 151px; display: none;"></div>
+            </div>
+            <div class="kg-cell-12" style="text-align: right; display: flex;">
+                <div class="container-cubes kg-cell-4">
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 0px; left: 10px;"></div>
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 46px; left: 10px;"></div>
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 92px; left: 10px;"></div>
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 138px; left: 10px;"></div>
+                    <div class="cube-color cube-color-0" style="position: absolute; bottom: 184px; left: 10px;"></div>
+                    <!-- <div class="cube-color cube-color-0" style="position: absolute; bottom: 230px; left: 10px;"></div> -->
+                    <div class="nope" style="top: 96px; left: 14px; display: none;"></div>
+                </div>
+                <div class="kg-cell-1"></div>
+                <div class="kg-cell-7">
+                    <div class="kid-1 dima"></div>
+                </div>
+            </div>
+        </div>
+        <div class="kg-cell-14" style="text-align: left;">
+            <div class="kg-cell-14" style="text-align: center;" (click)="showHint = true">
+                <div class="kg-label mary">Thu hà</div>
+                <div class="button-ok button-ok_font_cr button-ok_color_blue" style="display: inline-block;">
+                    <div class="button-ok__placeholder" style="visibility: hidden;">Ok</div>
+                    <div class="button-ok__wrong"></div>
+                    <div class="button-ok__right"></div>
+                    <div class="button-ok__text">Chọn</div>
+                </div>
+            </div>
+        </div>
+        <div class="kg-cell-14" style="text-align: right;">
+            <div class="kg-cell-14" style="text-align: center;" (click)="next()">
+                <div class="kg-label dima">Việt cường</div>
+                <div class="button-ok button-ok_font_cr button-ok_color_blue" style="display: inline-block;">
+                    <div class="button-ok__placeholder" style="visibility: hidden;">Ok</div>
+                    <div class="button-ok__wrong"></div>
+                    <div class="button-ok__right"></div>
+                    <div class="button-ok__text">Chọn</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showHint" class="kg-container kg-cell-28" style="margin-top: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px; color: green;">Gợi ý: Bạn hãy đếm số lượng hộp gỗ của từng người. Ai có số hộp gỗ nhiều hơn?</div>
+</div>

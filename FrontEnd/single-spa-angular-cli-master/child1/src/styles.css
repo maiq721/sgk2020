@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+
+.lesson-section {
+  width: 99vw;
+  height: 97vh;
+}
+.font-13 {
+  font-size: 13px;
+}
+.font-15 {
+  font-size: 15px;
+}
+.font-17 {
+  font-size: 17px;
+}
+.font-20 {
+  font-size: 20px;
+}
+.font-24 {
+  font-size: 24px;
+}
+.font-28 {
+  font-size: 28px;
+}
+.bold {
+  font-weight: 700;
+}
+.medium {
+  font-weight: 500;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-blue {
+  color: #2196f3 !important;
+}
+.text-red {
+  color: #e8384f !important;
+}
+.text-white {
+  color: #fff !important;
+}
+.line-height-24 {
+  line-height: 24px;
+}
+.flex-c-m {
+  align-items: center;
+  justify-content: center;
+}
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute;
+}
+.lesson-center {
+  top: 10%;
+  left: 25%;
+}
+.back-to-list-lesson {
+  cursor: pointer;
+  height: 40px;
+  background-color: white;
+  font-size: 24px;
+  padding: 0px 10px;
+  line-height: 40px;
+  top: 0px;
+  border-bottom-right-radius: 8px;
+  color: #2196f3;
+  height: 40px;
+  background-color: white;
+  font-size: 24px;
+}

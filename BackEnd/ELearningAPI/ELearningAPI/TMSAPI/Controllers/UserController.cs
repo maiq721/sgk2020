@@ -44,7 +44,7 @@ namespace TMSAPI.Controllers
             }).Result;
 
 
-            if (userDB != null)
+            if (userDB != null && userDB.Count > 0)
             {
                 userDB[0].Password = null;
                 return Ok(new
@@ -53,13 +53,15 @@ namespace TMSAPI.Controllers
                     UserInfo = userDB[0]
                 });
             }
-            return Unauthorized();
+            return Ok(new
+            {
+                Errorcode = 401
+            });
         }
 
         [HttpPost]
-        [AllowAnonymous]
-        [Route("SignUp")]
-        public async Task<ServiceResponse> SignUp([FromBody] User user)
+        [Route("SignUpUser")]
+        public async Task<ServiceResponse> SignUp(User user)
         {
             var res = new ServiceResponse();
             try

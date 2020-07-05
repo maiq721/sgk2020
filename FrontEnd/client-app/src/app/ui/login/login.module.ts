@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SignupComponent } from './signup/signup.component';
 import { PopupModule } from 'src/app/popup/popup.module';
 import { FormsModule } from '@angular/forms';
+import { DirectiveModule } from 'src/app/directive/directive.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     LoginRoutingModule,
     FontAwesomeModule,
     PopupModule,
-    FormsModule
+    FormsModule,
+    DirectiveModule
   ]
 })
 export class LoginModule { }

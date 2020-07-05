@@ -9,47 +9,27 @@
                 <div class="ml-2 font-20">Quay lại</div>
             </div>
             <div class="t-program-menu--item-wrap">
-                <div class="t-program-menu--item size-4 active"><a class="t-program-menu--item-link"
-                        href="/teachers/g/61411/subjects/1/course_programs/1?topic_id=981">
+                <div class="t-program-menu--item size-4" [ngClass]="{active: itemTopic.TopicID === currentTopic.TopicID}" *ngFor="let itemTopic of listTopicAndLesson">
+                    <a class="t-program-menu--item-link" (click)="switchTopic(itemTopic)">
                         <div class="t-program-menu--item-name">
                             <div class="t-program-menu--item-name--hack"></div>
-                            <div class="t-program-menu--item-name--text">Numbers</div>
+                            <div class="t-program-menu--item-name--text">{{itemTopic.TopicName}}</div>
                         </div>
-                    </a></div>
-                <div class="t-program-menu--item size-4  blue "><a class="t-program-menu--item-link"
-                        href="/teachers/g/61411/subjects/1/course_programs/1?topic_id=1109">
-                        <div class="t-program-menu--item-name">
-                            <div class="t-program-menu--item-name--hack"></div>
-                            <div class="t-program-menu--item-name--text">Operations</div>
-                        </div>
-                    </a></div>
-                <div class="t-program-menu--item size-4  yellow "><a class="t-program-menu--item-link"
-                        href="/teachers/g/61411/subjects/1/course_programs/1?topic_id=983">
-                        <div class="t-program-menu--item-name">
-                            <div class="t-program-menu--item-name--hack"></div>
-                            <div class="t-program-menu--item-name--text">Geometry</div>
-                        </div>
-                    </a></div>
-                <div class="t-program-menu--item size-4  violet "><a class="t-program-menu--item-link"
-                        href="/teachers/g/61411/subjects/1/course_programs/1?topic_id=984">
-                        <div class="t-program-menu--item-name">
-                            <div class="t-program-menu--item-name--hack"></div>
-                            <div class="t-program-menu--item-name--text">Measurement</div>
-                        </div>
-                    </a></div>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- phần nội dung trong từng topic, chứa các lesson -->
         <div class="d-flex flex-column lesson-content col-9">
-            <div class="lesson">
+            <div class="lesson" *ngIf="currentTopic">
                 <!-- <div class="breadcrumb">
                 </div> -->
-                <div class="lesson--title bold font-20 pl-5 mb-3 text-center">Học đếm</div>
+                <div class="lesson--title bold font-20 pl-5 mb-3 text-left">{{currentTopic.TopicName}}</div>
                 <div class="lesson--cards d-flex flex-wrap">
                     <!-- từng item -->
-                    <div class="d-flex flex-column justify-content-center cursor-pointer mr-3 mb-3" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
-                        <app-grid-lesson-item></app-grid-lesson-item>
+                    <div class="d-flex flex-column justify-content-center cursor-pointer mr-5 mb-3" *ngFor="let itemLesson of currentTopic.ListLeson">
+                        <app-grid-lesson-item [lessonItem]="itemLesson"></app-grid-lesson-item>
                     </div>
             </div>
         </div>
