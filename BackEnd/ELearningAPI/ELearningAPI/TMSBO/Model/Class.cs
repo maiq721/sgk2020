@@ -16,7 +16,7 @@ namespace TMSBO.Model
         /// <summary>
         /// 
         /// </summary>
-        public long? ClassName { get; set; }
+        public string ClassName { get; set; }
         /// <summary>
         /// lớp học thuộc chương trình học
         /// </summary>

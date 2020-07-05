@@ -21,7 +21,11 @@ namespace TMSBL
         public bool Delete(int id)
         {
             var res = false;
-            res = DL.Execute("Proc_Class_Delete").Result;
+            var param = new
+            {
+                v_ClassID = id
+            };
+            res = DL.Execute("Proc_Class_Delete", param: param).Result;
             return res;
         }
     }

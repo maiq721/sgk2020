@@ -56,7 +56,7 @@ namespace TMSAPI.Controllers
         //    return res;
         //}
 
-        [HttpDelete]
+        [HttpGet]
         [Route("delete/{id}")]
         public async Task<ServiceResult> DeleteData(int id)
         {
