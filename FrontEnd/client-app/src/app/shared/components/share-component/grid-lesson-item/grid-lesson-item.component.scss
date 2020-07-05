@@ -6,5 +6,8 @@
     position: relative;
     border: 2px solid #00ad9b;
     background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
   }
 }

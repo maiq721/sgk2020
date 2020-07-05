@@ -10,6 +10,8 @@ namespace TMSBL
     public interface ILessonBL : IBaseBL
     {
         ServiceResult GetAllData();
-        object GetBySubjectID(int subjectID);
+        object GetBySubjectID(int subjectID, int userID);
+        object GetSubjectDetailByUser(int userID);
+        object UpdateStatus(int id, int status, int userID);
     }
 }

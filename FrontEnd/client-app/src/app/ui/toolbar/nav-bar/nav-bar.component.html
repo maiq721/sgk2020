@@ -9,13 +9,13 @@
                 <!-- item các mục ở đây -->
                 <div class="headbar--main-pages w-100 ml-3">
                     <a class="active font-17 mr-3 cursor-pointer" [ngClass]="{'medium text-blue': tabActive === 1}" (click)="navigate()">Trang chủ</a>
-                    <a class="font-17 cursor-pointer mr-3"  [ngClass]="{'medium text-blue': tabActive === 2}" (click)="navigate('/elearning/client/mytask')">Bài học của tôi</a>
-                    <a class="font-17 cursor-pointer"  [ngClass]="{'medium text-blue': tabActive === 3}" (click)="navigate('/elearning/client/myclass')">Lớp học của tôi</a>
+                    <a class="font-17 cursor-pointer mr-3" *ngIf="showMyTask" [ngClass]="{'medium text-blue': tabActive === 2}" (click)="navigate('/elearning/client/mytask')">Bài học của tôi</a>
+                    <a class="font-17 cursor-pointer" *ngIf="showMyClass" [ngClass]="{'medium text-blue': tabActive === 3}" (click)="navigate('/elearning/client/myclass')">Lớp học của tôi</a>
                 </div>
 
             </div>
             <div class="user-panel mr-3 cursor-hovered cursor-pointer position-relative" (click)="changeOptionContext()">
-                <div class="user-info position-absolute back-white" style="top: -20px; background-color: #A7FFEB; z-index: 3;">
+                <div class="user-info position-absolute back-white" style="top: -20px; background-color: #f2f2f2; z-index: 3;">
                     <div class="image-container">
                         <div class="user-image"></div>
                     </div>

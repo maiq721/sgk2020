@@ -53,8 +53,22 @@
       <button type="button" class="btn btn-light mr-3" (click)="visible = false">Hủy</button>
       <button type="button" class="btn btn-primary"
         [ngClass]="{'disabled-btn': !currentUser.FullName || !currentUser.Email || !currentUser.Password || !currentUser.ProgramID}"
-        (click)="submitSignUp()"><a *ngIf="registerType === 1" class="w-100 h-100 text-white"
+        (click)="submitSignUp()"><a *ngIf="registerType === 1" class="w-100 h-100 text-white" style="display: block;"
           href="{{emailConfig}}">Đồng ý</a><a *ngIf="registerType === 2">Đồng ý</a></button>
     </div>
+  </div>
+</dx-popup>
+
+
+<dx-popup [width]="400" [height]="300" [showTitle]="true" [title]="titlePopup" [dragEnabled]="true"
+  [(visible)]="visibleSignupSucess" (onHidden)="hideNotify()">
+  <div class="d-flex flex-column justify-content-between" *dxTemplate="let data of 'content'">
+    <div>
+      <h4 class="text-center" *ngIf="registerType !== 1">Bạn đã đang ký thành công tài khoản tại Platform E-Learning.
+        Vui lòng đăng nhập để sử dụng ứng dụng.</h4>
+      <h4 class="text-center" *ngIf="registerType === 1">Bạn đã đang ký thành công tài khoản tại Platform E-Learning với
+        vai trò giáo viên. Vui lòng chờ xác nhận từ quản trị viên ứng dụng.</h4>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="signIn()">Đồng ý</button>
   </div>
 </dx-popup>

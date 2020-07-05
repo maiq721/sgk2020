@@ -17,7 +17,7 @@ namespace TMSAPI
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             string uri = actionContext.Request.RequestUri.LocalPath.ToLower();
-            if (uri.StartsWith("/api/user/login") || uri.StartsWith("/api/test/value") || uri.StartsWith("/api/user/signup"))
+            if (uri.StartsWith("/api/user/login") || uri.StartsWith("/api/test/value") || uri.StartsWith("/api/user/signupuser"))
             {
                 return;
             }

@@ -10,7 +10,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (req.headers.get('No-Auth') === 'True') {
+    if (req.headers.get('No-Auth') === 'True' || (req.url && req.url.includes("SignUpUser"))) {
       return next.handle(req.clone());
     }
     if (localStorage.getItem('Token')) {
@@ -23,13 +23,13 @@ export class AuthInterceptor implements HttpInterceptor {
             succ => { },
             err => {
               if (err.status === 401) {
-                this.router.navigateByUrl('/login');
+                this.router.navigateByUrl('elearning/login');
               }
             }
           )
         );
     } else {
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('elearning/login');
       return next.handle(req.clone());
     }
   }

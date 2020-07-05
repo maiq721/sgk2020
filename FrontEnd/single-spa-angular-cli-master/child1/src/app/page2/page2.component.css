@@ -1,0 +1,122 @@
+.kg-container {
+    position: relative;
+}
+.kg-cell-28 {
+    position: relative;
+    display: inline-block;
+    width: 560px;
+}
+.kg-cell-12 {
+    position: relative;
+    display: inline-block;
+    width: 240px;
+}
+.kg-cell-7 {
+    position: relative;
+    display: inline-block;
+    width: 140px;
+}
+.kid-0 {
+    background: url('/assets/image/girl67.svg') no-repeat;
+    height: 280px;
+    display: inline-block;
+    width: 138px;
+}
+
+.kg-cell-1 {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+}
+.floor {
+    z-index: -1;
+    bottom: -15px;
+    width: 240px;
+    height: 60px;
+    /* background-image: url(69.png); */
+    background-color: blanchedalmond;
+}
+.kg-cell-4 {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+}
+.container-cubes {
+    position: relative;
+    height: 286px;
+}
+
+.cube-color-0 {
+    background-image: url('/assets/image/cube35.png');
+    background-repeat: no-repeat;
+    width: 55px;
+    height: 55px;
+}
+.kg-cell-2 {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+}
+.container-arrows {
+    min-height: 286px;
+}
+.kid-1 {
+    background: url('/assets/image/kid68.svg') no-repeat;
+    height: 280px;
+}
+
+.kg-cell-14 {
+    position: relative;
+    display: inline-block;
+    width: 280px;
+}
+.kg-label {
+    font-size: 30px;
+}
+
+.button-ok_font_cr:not(.button-ok_case_uc) {
+    height: 41px;
+    padding: 2px 14px;
+    border-radius: 5px;
+    width: 56px;
+    cursor: pointer;
+}
+.button-ok_color_blue {
+    background: #6ec3e2;
+}
+.button-ok {
+    position: relative;
+    display: inline-block;
+}
+.button-ok_font_cr:not(.button-ok_case_uc) .button-ok__placeholder, .button-ok_font_cr:not(.button-ok_case_uc) .button-ok__text {
+    display: block;
+    white-space: nowrap;
+    font-size: 24px;
+    line-height: 28px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 7px 0 6px;
+}
+.button-ok_font_cr:not(.button-ok_case_uc) .button-ok__placeholder {
+    position: relative;
+}
+
+.button-ok_font_cr:not(.button-ok_case_uc) .button-ok__placeholder, .button-ok_font_cr:not(.button-ok_case_uc) .button-ok__text {
+    display: block;
+    white-space: nowrap;
+    font-size: 24px;
+    line-height: 28px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 7px 0 6px;
+    cursor: pointer;
+    position: absolute;
+}
+.card.script5437 .button-ok_font_cr:not(.button-ok_case_uc) .button-ok__text {
+    position: absolute;
+    left: 14px;
+    top: 2px;
+}
+.button-ok_color_blue .button-ok__text {
+    color: #fff;
+}

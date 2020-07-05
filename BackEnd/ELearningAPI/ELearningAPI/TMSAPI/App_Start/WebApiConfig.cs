@@ -28,6 +28,7 @@ namespace TMSAPI
             container.RegisterType<ISubjectBL, SubjectBL>();
             container.RegisterType<ITopicBL, TopicBL>();
             container.RegisterType<ILessonBL, LessonBL>();
+            container.RegisterType<IUserLessonBL, UserLessonBL>();
             container.RegisterType<IUserRoleBL, UserRoleBL>();
 
 

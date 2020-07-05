@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { User } from '../model/User';
 
 @Injectable()
 export class AuthService {
@@ -22,9 +23,13 @@ export class AuthService {
   get isLoggedIn() {
     return this.loggedIn;
   }
-  getUserInfo() {
+  getUserInfo(): User {
     const userstr = localStorage.getItem("UserInfo");
-    return JSON.parse(userstr);
+    if (userstr) {
+      return JSON.parse(userstr);
+    } else {
+      return new User();
+    }
   }
 }
 
@@ -33,18 +38,15 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    const isLoggedIn = this.authService.isLoggedIn;
-    const isLoginForm = route.routeConfig.path === 'login-form';
-
-    if (isLoggedIn && isLoginForm) {
-      this.router.navigate(['/']);
-      return false;
+    const user = this.authService.getUserInfo();
+    if (user && user.RoleCode) {
+      const role = user.RoleCode;
+      if (role === 'Teacher' || role === 'Student') {
+        return true;
+      }
+    } else {
+      this.router.navigate(['elearning/login']);
     }
-
-    if (!isLoggedIn && !isLoginForm) {
-      this.router.navigate(['/login-form']);
-    }
-
-    return isLoggedIn || isLoginForm;
+    return false;
   }
 }

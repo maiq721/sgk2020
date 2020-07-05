@@ -16,11 +16,23 @@ namespace TMSBL
             res.Data = DL.Query(query, System.Data.CommandType.Text);
             return res;
         }
-        
-        public object GetBySubjectID(int subjectID)
+
+        public object GetBySubjectID(int subjectID, int userID)
         {
-            var query = $"SELECT l.*, s.SubjectName,s.ClassID FROM lesson l JOIN topic t ON l.TopicID = t.ID JOIN subject s ON t.SubjectID = s.ID WHERE t.SubjectID = {subjectID}";
+            var query = $"SELECT ul.ID AS UserLessonID,ul.LessonStatus,l.*, s.SubjectName,s.ClassID FROM lesson l LEFT JOIN user_lesson ul ON l.ID = ul.LessonID AND ul.UserID= {userID} JOIN topic t ON l.TopicID = t.ID JOIN subject s ON t.SubjectID = s.ID WHERE t.SubjectID = {subjectID}";
             var res = DL.Query(query, System.Data.CommandType.Text).Result;
+            return res;
+        }
+        public object GetSubjectDetailByUser(int userID)
+        {
+            var query = $"SELECT ul.ID AS UserLessonID,ul.LessonStatus,l.*, s.SubjectName,s.ClassID FROM lesson l LEFT JOIN user_lesson ul ON l.ID = ul.LessonID AND ul.UserID= {userID} JOIN topic t ON l.TopicID = t.ID JOIN subject s ON t.SubjectID = s.ID";
+            var res = DL.Query(query, System.Data.CommandType.Text).Result;
+            return res;
+        }
+        public object UpdateStatus(int id, int status, int userID)
+        {
+            var query = $"UPDATE user_lesson ul set ul.LessonStatus = {status} WHERE ul.ID = {id};";
+            var res = DL.ExecuteScalar<object>(query, System.Data.CommandType.Text);
             return res;
         }
     }
