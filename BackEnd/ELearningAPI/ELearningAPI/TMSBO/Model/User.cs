@@ -25,6 +25,8 @@ namespace TMSBO.Model
         /// user đăng ký ở chương trình nào
         /// </summary>
         public int? ProgramID { get; set; }
+
+        public string ProgramName { get; set; }
         /// <summary>
         /// Số điện thoại
         /// </summary>

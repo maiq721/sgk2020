@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import 'devextreme/data/odata/store';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/shared/services';
+import { ProgramService } from 'src/app/service/program.service';
 
 @Component({
   templateUrl: 'display-data.component.html'
@@ -18,6 +19,7 @@ export class DisplayDataComponent implements OnInit{
 
   userLogin: any;
   emailConfig= "";
+  listProgram: any;
 
   listRole = [
     {
@@ -34,7 +36,8 @@ export class DisplayDataComponent implements OnInit{
 
   constructor(
     private userSv: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private programSV: ProgramService
   ) {
     
   }
@@ -45,12 +48,21 @@ export class DisplayDataComponent implements OnInit{
     ];
     this.userLogin = this.authService.getUserInfo();
     this.loadData();
+    this.loadProgram();
   }
 
   loadData(){
     this.userSv.getAllData().subscribe(res => {
       if(res && res.Success){
         this.dataSource = res.Data;
+      }
+    });
+  }
+
+  loadProgram(){
+    this.programSV.getallData().subscribe(res => {
+      if(res && res.Success){
+        this.listProgram = res.Data;
       }
     });
   }
@@ -73,6 +85,7 @@ export class DisplayDataComponent implements OnInit{
   }
 
   saveData(){
+    this.user.RoleName = this.listRole.filter(e => e.RoleCode == this.user.RoleCode)[0].RoleName;
     if(this.user.FullName.trim()){
       this.popupVisible = false;
       this.user.State = this.formMode == 1 ? 1 : 2;

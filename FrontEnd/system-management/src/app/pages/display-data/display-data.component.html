@@ -22,6 +22,8 @@
     </dxi-column>
     <dxi-column dataField="RoleName" [width]="150" caption="Vai trò" [allowSorting]="false" [hidingPriority]="7">
     </dxi-column>
+    <dxi-column dataField="ProgramName" [width]="150" caption="Chương trình" [allowSorting]="false" [hidingPriority]="7">
+    </dxi-column>
     <dxi-column dataField="Status" [width]="140" caption="Trạng thái người dùng" cellTemplate="StatusTemplate" [hidingPriority]="3">
         <div *dxTemplate="let status of 'StatusTemplate'" class="dis-flex">
             <div *ngIf="status.value == 3" style="color: green;">
@@ -80,6 +82,15 @@
                     Số điện thoại:
                 </div>
                 <dx-text-box [(value)]="user.Mobile"></dx-text-box>
+            </div>
+            <div class="m-row">
+                <div class="medium labelinput">
+                    Chương trình:
+                </div>
+                <dx-select-box placeholder="Chọn vai trò" [dataSource]="listProgram" [(value)]="user.ProgramID" valueExpr="ID"
+                displayExpr="ProgramName" searchEnabled="true" searchExpr="ProgramName" [disabled]="formMode === 2">
+                    
+                </dx-select-box>
             </div>
             <div class="m-row">
                 <div class="medium labelinput">
