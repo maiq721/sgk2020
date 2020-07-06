@@ -32,23 +32,26 @@ export class AuthService {
 export class AuthGuardService implements CanActivate {
   user : any;
     constructor(private router: Router, private authService: AuthService) {
-      this.user = this.authService.getUserInfo();
+      
     }
 
     canActivate(route: ActivatedRouteSnapshot): boolean {
+      this.user = this.authService.getUserInfo();
         const isLoggedIn = this.authService.isLoggedIn;
         const isLoginForm = route.routeConfig.path === 'login-form';
 
-        if (isLoggedIn && isLoginForm && this.user && this.user.RoleCode === "Admin") {
-            this.router.navigate(['/']);
+        if (isLoggedIn && this.user && this.user.RoleCode === "Admin") {
+            // this.router.navigate(['/']);
+            return true;
+        }
+
+        if (!isLoggedIn && (!this.user || this.user.RoleCode !== "Admin" ) ) {
+            this.authService.logOut();
+            this.router.navigate(['/login-form']);
             return false;
         }
 
-        if (!isLoggedIn && !isLoginForm && (!this.user || this.user.RoleCode !== "Admin" ) ) {
-            this.authService.logOut();
-            this.router.navigate(['/login-form']);
-        }
-
-        return isLoggedIn || isLoginForm;
+        this.router.navigate(['/login-form']);
+        return false;
     }
 }

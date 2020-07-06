@@ -34,7 +34,7 @@ namespace TMSBL
 
         public bool Delete(int id)
         {
-            var query = $"Delete from lesson where LessonID = {id}";
+            var query = $"Delete from lesson where ID = {id}";
             return DL.Execute(query, CommandType.Text).Result;
         }
         public object UpdateStatus(int id, int status, int userID)

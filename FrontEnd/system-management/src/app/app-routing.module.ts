@@ -20,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: "",
-    loadChildren: () => import('./ui/management/management.module').then(m => m.ManagementModule)
+    loadChildren: () => import('./ui/management/management.module').then(m => m.ManagementModule),
+    canActivate: [ AuthGuardService ]
   },
   {
     path: 'login-form',

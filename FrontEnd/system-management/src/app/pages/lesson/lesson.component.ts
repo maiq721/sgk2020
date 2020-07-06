@@ -79,9 +79,9 @@ export class LessonComponent implements OnInit {
 
   saveData(){
     if(this.formMode === 1){
-      this.lesson = Math.floor(Math.random() * 2);
+      this.lesson.Image = Math.floor(Math.random() * 2);
     }
-    this.lesson.ProgramName = this.listProgram.filter(x => x.ProgramID === this.lesson.ProgramID)[0].ProgramName;
+    this.lesson.TopicName = this.listTopic.filter(x => x.ID === this.lesson.TopicID)[0].TopicName;
     if(this.lesson.LessonName.trim()){
       this.popupVisible = false;
       this.lesson.State = this.formMode == 1 ? 1 : 2;

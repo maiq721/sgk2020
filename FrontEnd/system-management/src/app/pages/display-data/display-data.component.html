@@ -24,13 +24,13 @@
     </dxi-column>
     <dxi-column dataField="Status" [width]="140" caption="Trạng thái người dùng" cellTemplate="StatusTemplate" [hidingPriority]="3">
         <div *dxTemplate="let status of 'StatusTemplate'" class="dis-flex">
-            <div *ngIf="status.value == 1" style="color: green;">
+            <div *ngIf="status.value == 3" style="color: green;">
                 Đang hoạt động
             </div>
             <div *ngIf="status.value == 4" style="color: gray;">
                 Ngừng hoạt động
             </div>
-            <div *ngIf="status.value == 3" style="color: orange;">
+            <div *ngIf="status.value == 2" style="color: orange;">
                 Chờ kích hoạt
             </div>
         </div>
@@ -44,11 +44,11 @@
             <div class="btn btn-danger" *ngIf="this.userLogin.UserID !== action.data.UserID"  style="cursor: pointer;margin-right: 8px;" (click)="showPopupDelete(action.data)">
                 Xóa
             </div>
-            <div class="btn btn-warning"  style="cursor: pointer;" (click)="lockUser(action.data, 4)" *ngIf="action.data.Status == 1 && this.userLogin.UserID !== action.data.UserID">
+            <div class="btn btn-warning"  style="cursor: pointer;" (click)="lockUser(action.data, 4)" *ngIf="action.data.Status == 3 && this.userLogin.UserID !== action.data.UserID">
                 Khóa
             </div>
-            <div class="btn btn-success" style="cursor: pointer;" (click)="lockUser(action.data, 1)" *ngIf="action.data.Status == 4 && this.userLogin.UserID !== action.data.UserID">
-                Kích hoạt
+            <div class="btn btn-success" style="cursor: pointer;" (click)="lockUser(action.data, 3)" *ngIf="(action.data.Status == 2 || action.data.Status == 4) && this.userLogin.UserID !== action.data.UserID">
+                   <a href="{{emailConfig}}" style="text-decoration: none;color: white">Kích hoạt</a>
             </div>
         </div>
     </dxi-column>

@@ -15,8 +15,8 @@
     </dxi-column>
     <dxi-column dataField="TopicName" caption="Chủ đề" [width]="200" [hidingPriority]="2">
     </dxi-column>
-    <dxi-column dataField="ProgramName" caption="Chương trình" [width]="200" [hidingPriority]="2">
-    </dxi-column>
+    <!-- <dxi-column dataField="ProgramName" caption="Chương trình" [width]="200" [hidingPriority]="2">
+    </dxi-column> -->
     <dxi-column dataField="LinkURL" caption="Đường dẫn bài tập" [width]="200" [hidingPriority]="2">
     </dxi-column>
     
@@ -33,7 +33,7 @@
     </dxi-column>
 </dx-data-grid>
 
-<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Môn học">
+<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Bài học">
     <div *dxTemplate="let data of 'content'">
         <div class="popup-container">
             <div class="m-row">
@@ -44,17 +44,16 @@
             </div>
             <div class="m-row">
                 <div class="medium labelinput">
-                    Môn học:
+                    Chủ đề:
                 </div>
-                <dx-select-box [(value)]="lesson.TopicID" [dataSource]="listTopic" valueExpr="ID"
+                <dx-select-box [(value)]="lesson.TopicID" [dataSource]="listTopic" valueExpr="ID" placeholder="Chọn chủ đề"
                     displayExpr="TopicName" searchEnabled="true" searchExpr="TopicName"></dx-select-box>
             </div>
             <div class="m-row">
                 <div class="medium labelinput">
-                    Chương trình:
+                    Đường dẫn :
                 </div>
-                <dx-select-box [(value)]="lesson.ProgramID" [dataSource]="listProgram" valueExpr="ID"
-                    displayExpr="ProgramName"></dx-select-box>
+                <dx-text-box [(value)]="lesson.LinkURL"></dx-text-box>
             </div>
             <div class="m-row">
                 <div class="medium labelinput">

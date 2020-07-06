@@ -30,7 +30,7 @@
     </dxi-column>
 </dx-data-grid>
 
-<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Môn học">
+<dx-popup height="auto" width="400" [(visible)]="popupVisible" title="Chủ đề">
     <div *dxTemplate="let data of 'content'">
         <div class="popup-container">
             <div class="m-row">
@@ -43,7 +43,7 @@
                 <div class="medium labelinput">
                     Tên môn học:
                 </div>
-                <dx-select-box [(value)]="topic.SubjectID" [dataSource]="listSubject" valueExpr="ID"
+                <dx-select-box [(value)]="topic.SubjectID" [dataSource]="listSubject" valueExpr="ID" placeholder="Chọn môn học"
                     displayExpr="SubjectName" searchEnabled="true" searchExpr="SubjectName"></dx-select-box>
             </div>
         </div>

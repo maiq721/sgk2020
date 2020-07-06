@@ -17,6 +17,7 @@ export class DisplayDataComponent implements OnInit{
   popupDeleteVisible: boolean = false;
 
   userLogin: any;
+  emailConfig= "";
 
   listRole = [
     {
@@ -84,6 +85,9 @@ export class DisplayDataComponent implements OnInit{
   }
 
   lockUser(e, status){
+    if(status == 3){
+      this.emailConfig = `mailto:${e.Email}?subject=[Kích hoạt tài khoản E-Learning]&body=Kính gửi Người dùng ${e.FullName}, Tài khoản ${e.UserName} của quý khách đã được kích hoạt trên hệ thống E-Learning, xin kính mời dùng thử. Trân trọng cảm ơn!`;
+    }
     this.userSv.lockUser(e.UserID, status).subscribe(res => {
       if(res && res.Success){
         this.loadData();

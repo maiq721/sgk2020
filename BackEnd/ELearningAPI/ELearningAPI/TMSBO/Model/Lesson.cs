@@ -30,6 +30,7 @@ namespace TMSBO.Model
         /// Lưu dư thừa để lấy bài học theo chương trình học
         /// </summary>
         public int? ProgramID { get; set; }
+        public string ProgramName { get; set; }
         /// <summary>
         /// trạng thái: 1 kích hoạt
         /// </summary>

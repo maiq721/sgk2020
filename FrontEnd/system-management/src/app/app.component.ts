@@ -14,7 +14,16 @@ export class AppComponent  {
   constructor(private authService: AuthService, private screen: ScreenService, public appInfo: AppInfoService) { }
 
   isAutorized() {
-    return this.authService.isLoggedIn;
+    var user = this.authService.getUserInfo();
+    if(user){
+      if(this.authService.isLoggedIn && user.RoleCode === "Admin"){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    return false;
+    
   }
 
   // thông báo
